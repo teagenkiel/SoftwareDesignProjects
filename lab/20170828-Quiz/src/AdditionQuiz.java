@@ -1,15 +1,32 @@
-// Fig. 2.3: Welcome2.java
-// Printing a line of text with multiple statements.
+// Fig. 2.7: Addition.java
+// Addition program that displays the sum of two numbers.
 
-public class Welcome2 {
+import java.util.Scanner;
+
+public class AdditionQuiz {
     // main method begins execution of Java application
     public static void main(String[] args) {
-        System.out.print("Welcome to ");
-        System.out.println("Java Programming!");
+        // create a Scanner to obtain input from the command window
+        Scanner input = new Scanner(System.in);
 
-        System.out.println("Teagen Kiel");
+        //int number1;  first number to ad
+        // int number2;  second number to add
+        //int sum;  sum of number1 and number2
+
+        System.out.print("Enter first integer: "); // prompt
+        int number1 = input.nextInt(); // read first number from user
+
+        System.out.print("Enter second integer: "); // prompt
+        int number2 = input.nextInt(); // read second number from user
+
+        System.out.print("Enter third integer: ");
+        int number3 = input.nextInt();
+
+        int sum = number1 + number2 + number3; // add numbers, then store total in sum
+
+        System.out.printf("Sum is %d%n", sum); // display sum
     } // end method main
-} // end class Welcome2
+} // end class Addition
 
 /* *************************************************************************
  * (C) Copyright 1992-2014 by Deitel & Associates, Inc. and               *
