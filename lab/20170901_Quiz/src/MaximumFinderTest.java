@@ -4,7 +4,7 @@
 import java.util.Scanner;
 
 
-public class MaximumFinderTest {
+public class MaximumFinderTest{
     // obtain three floating-point values and determine maximum value
     public static void main(String[] args) {
         // create Scanner for input from command window
