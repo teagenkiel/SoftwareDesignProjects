@@ -30,7 +30,6 @@ public class EasterCycleCounter {
         for (int yearCounter = easterCycleMin; yearCounter < easterCycleMax; yearCounter++) {
 
             this.calculatorForCycle.setYear(yearCounter);
-            this.calculatorForCycle.computus();
             dateCounterArray[(this.calculatorForCycle.getMonthAsInteger()) - monthIndexOffset]
                     [(this.calculatorForCycle.getDay()) - dayIndexOffset]++;
 
