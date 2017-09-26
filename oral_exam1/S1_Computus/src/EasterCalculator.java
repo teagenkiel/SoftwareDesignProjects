@@ -17,10 +17,10 @@ public class EasterCalculator {
 
     //instance variables of class EasterCalculator
 
-    private int year;
-    private int monthAsInteger;
-    private String monthAsString;
-    private int day;
+    private int year;                 //The year to calculate the date of easter for
+    private int monthAsInteger;       //The calculated month as an integer
+    private String monthAsString;     // The calculated month as a String
+    private int day;                  // The calculated day
 
 
     /**
@@ -91,7 +91,7 @@ public class EasterCalculator {
 
     /**
      * toString method for class EasterCalculator. Use this method if you want to print the calculated easter date.
-     * @return "The date of Easter is <month> <day>, <year>"
+     * @return "The date of Easter is "month" "day", "year""
      */
     @Override
     public String toString() {

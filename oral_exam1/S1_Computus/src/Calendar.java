@@ -1,5 +1,9 @@
 /**
- * Created by teagenkiel on 9/11/17.
+ * This enumeration defines each month in the Gregorian calendar. It gives info about each month including but not
+ * limited to, month name, month number, month abbreviation, and how many days are in the month.
+ *
+ * @author Teagen Kiel
+ * @since 2017-09-25
  */
 public enum Calendar {
 
@@ -19,8 +23,16 @@ public enum Calendar {
     private final String monthName;
     private final int monthNumber;
     private final String monthAbbreviation;
-    private final int daysInMonth;
+    private final int daysInMonth; //how many days are in the month
 
+
+    /**
+     * The main constructor for the enum.
+     * @param monthName name of the month
+     * @param monthNumber number of the month
+     * @param monthAbbreviation abbreviation of the month
+     * @param daysInMonth number of days in the month
+     */
     Calendar(String monthName, int monthNumber, String monthAbbreviation, int daysInMonth){
 
         this.monthName = monthName;
@@ -30,6 +42,13 @@ public enum Calendar {
 
     }
 
+
+    /**
+     * This method returns the month name if the given month number and month number int the enum match.
+     * @param monthNumber user gives the month number
+     * @return monthName enum returns the month name as a String
+     * @throws IllegalArgumentException if the month number is not in the enum (invalid month num)
+     */
     public static String getMonthName(double monthNumber){
 
         for( Calendar myCalendar : Calendar.values()){
@@ -45,18 +64,30 @@ public enum Calendar {
 
     }
 
+    /**
+     * @return the month name
+     */
     public String getMonthName() {
         return monthName;
     }
 
+    /**
+     * @return the month number
+     */
     public int getMonthNumber() {
         return monthNumber;
     }
 
+    /**
+     * @return the month abbreviation
+     */
     public String getMonthAbbreviation() {
         return monthAbbreviation;
     }
 
+    /**
+     * @return the number of days in the month
+     */
     public int getDaysInMonth() {
         return daysInMonth;
     }
