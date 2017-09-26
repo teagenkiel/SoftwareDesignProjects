@@ -3,9 +3,14 @@
  * over a 5,700,000 year period. It calculates and stores this upon construction so that the time-consuming
  * calculation only needs to computed once and can be printed multiple times without recomputing. This class uses
  * composition and "has-a" object of the EasterCalculator class to compute the dates for every year in the cycle.
+ * Note: Upon construction, the object will calculate and store the cycle count, because it only needs to executed
+ * once per object, therefore it is best to create your object at the beginning of your program(or before any loops)
+ * so that you only need to do the lengthy computation once.
  *
  * @author Teagen Kiel
  * @since 2017-09-25
+ * @see EasterCalculator
+ * @see Calendar
  */
 public class EasterCycleCounter {
 
@@ -15,18 +20,16 @@ public class EasterCycleCounter {
     private final int monthIndexOffset = 3; //offset to convert array index to month number
     private final int dayIndexOffset = 1; //offset to convert array index to day number
 
-    private int[][] dateCounterArray = new int[monthIndexMax][dayIndexMax]; //array to hold a value for each day of each month
+    private final int[][] dateCounterArray = new int[monthIndexMax][dayIndexMax]; //array to hold a value for each day of each month
     private EasterCalculator calculatorForCycle;  //instance variable which holds the EasterCalculator given by user
 
 
     /**
      * Main constructor for this class. Calls the "countEasters" method so that we only have to compute and store the
      * amount of easters per date once.
-     * @param calculatorForCycle the EasterCalculator that the user specifies, used to compute the dates of easter
      */
-    public EasterCycleCounter(EasterCalculator calculatorForCycle){
+    public EasterCycleCounter(){
 
-        this.calculatorForCycle = calculatorForCycle;
         this.countEasters();
 
     }
@@ -35,21 +38,26 @@ public class EasterCycleCounter {
      * This method will count the amount of times Easter falls on each date over a 5,700,000 year period.
      * For each year from 0 to 5,700,000, it will use the EasterCalculator given to
      * compute the easter date and increment the value held in the array that is associated with that date.
+     * This method only needs to be executed once after the object is created, so it is called only in the constructor.
+     * This method is not static because we need to have a built object with a stored cycle count in order for the
+     * printEasterCycles function to work.
      */
     private void countEasters() {
 
         final int easterCycleMax = 5700000;
         final int easterCycleMin = 0;
+        EasterCalculator calculatorForCycle = new EasterCalculator(0); //easter calculator used to calculate dates
 
-        System.out.println("Calculating...");
+        System.out.println("Please wait: calculating cycle of Easters...");
 
         for (int yearCounter = easterCycleMin; yearCounter < easterCycleMax; yearCounter++) {
 
-            this.calculatorForCycle.setYear(yearCounter);
-            dateCounterArray[(this.calculatorForCycle.getMonthAsInteger()) - monthIndexOffset]
-                    [(this.calculatorForCycle.getDay()) - dayIndexOffset]++;
+            calculatorForCycle.setYear(yearCounter);
+            dateCounterArray[(calculatorForCycle.getMonthAsInteger()) - monthIndexOffset]
+                    [(calculatorForCycle.getDay()) - dayIndexOffset]++;
 
         }
+
     }
 
     /**

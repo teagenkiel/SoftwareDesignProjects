@@ -1,5 +1,13 @@
 /**
- * Created by teagenkiel on 9/8/17.
+ * The purpose of this class is to test both the EasterCalculator and EasterCycleCounter classes. The main will print
+ * a menu to which the user will respod to which action will be taken. It will either be to calculate the date
+ * of Easter for the year of the user's choice using EasterCalculator, or to print the amount of times Easter occurs
+ * on each date over a cycle using EasterCycleCounter.
+ *
+ * @author Teagen Kiel
+ * @since 2017-09-25
+ * @see EasterCalculator
+ * @see EasterCycleCounter
  */
 
 import java.util.Scanner;
@@ -12,8 +20,10 @@ public class EasterCalculatorTest {
         Scanner myScanner = new Scanner(System.in);
 
         boolean yearFlag = true;
-        boolean cycleCreationFlag = true;
+        boolean cycleCreationFlag = false;
         int scannedInteger = 0;
+        /*Creating this EasterCycleCounter object because we only need one object for entire program*/
+        EasterCycleCounter myCycleCounter = new EasterCycleCounter();
 
         System.out.println("Welcome to the Easter calculation program");
 
@@ -38,7 +48,7 @@ public class EasterCalculatorTest {
                             yearFlag = false;
 
 
-                        } catch (Exception yearException) {
+                        } catch (Exception yearException) { //catches exception if year is not valid
                             System.out.printf("Exception: %s%n", yearException.getMessage());
                         }
                     }
@@ -46,10 +56,6 @@ public class EasterCalculatorTest {
 
                 case (2):
 
-
-                    EasterCalculator calculatorForCycle = new EasterCalculator(0);
-                    cycleCreationFlag = false;
-                    EasterCycleCounter myCycleCounter = new EasterCycleCounter(calculatorForCycle);
                     myCycleCounter.printEasterCount();
                     break;
 
