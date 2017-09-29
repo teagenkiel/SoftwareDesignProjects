@@ -114,7 +114,7 @@ public class EasterCalculator {
      * @param yearToCheck The year desired to validate.
      * @throws IllegalArgumentException if the year is less than zero
      */
-    private static void validateYear(int yearToCheck){
+    private static void validateYear(int yearToCheck) throws IllegalArgumentException{
 
         if(yearToCheck < 0 ){
 
