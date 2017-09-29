@@ -2,8 +2,10 @@
  * Created by teagenkiel on 9/8/17.
  *
  * The purpose of this class is to calculate the date of easter using the Meeus/Jones/Butcher algorithm.
- * When an object of this class is created, a year must be specified, and then the date of easter will be computed
- *  and stored automatically. To print off the date, just use the toString method which is specified.
+ * When an object of this class is created, a year must be specified. Call the computus() method directly after
+ * construction to compute the date of Easter after the object is constructed. To print off the date, just use the
+ * toString method which is specified. If the computus method is not called before using the toString method,
+ * a warning will be specified.
  *
  * @author Teagen Kiel
  * @version 1.0
@@ -42,7 +44,6 @@ public class EasterCalculator {
 
         validateYear(year);
         this.year = year;
-        this.computus();
 
     }
 
@@ -91,10 +92,16 @@ public class EasterCalculator {
 
     /**
      * toString method for class EasterCalculator. Use this method if you want to print the calculated easter date.
+     * If the computus method is not called after construction (i.e. the month and day aren't set yet) a warning
+     * will be displayed.
      * @return "The date of Easter is "month" "day", "year""
      */
     @Override
     public String toString() {
+
+        if(monthAsString == null || day == 0 ){
+            System.out.println("Developer warning: the computus method must be called after object is constructed\n");
+        }
         return "The date of Easter is: " +
                 monthAsString + " " +
                 day + ", " +
@@ -103,8 +110,8 @@ public class EasterCalculator {
 
     /**
      * This method will validate a year to make sure that it is not negative. This class will not deal with
-     * negative years. It is static that
-     * @param yearToCheck
+     * negative years. It is static because we can use it if the object has not been created yet.
+     * @param yearToCheck The year desired to validate.
      * @throws IllegalArgumentException if the year is less than zero
      */
     private static void validateYear(int yearToCheck){
@@ -122,7 +129,7 @@ public class EasterCalculator {
      * Then uses the Calendar enumeration to convert the month from an integer to a string.
      * @throws Exception if the month value is bigger than 12
      */
-    private void computus() {
+    public void computus() {
 
         this.monthAsInteger = (int)this.calculateMonth();
         this.day = (int)calculateDay();
@@ -133,8 +140,6 @@ public class EasterCalculator {
         catch (Exception monthOutOfRange){
             System.out.printf("Exception: %s%n", monthOutOfRange.getMessage());
         } //catches exception if month# is not b/t 1 and 12
-
-
 
     }
 
