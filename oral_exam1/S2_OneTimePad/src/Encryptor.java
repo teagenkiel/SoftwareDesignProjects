@@ -65,7 +65,13 @@ public class Encryptor {
         return alphabetIndexArray;
     }
 
-    encryptMessa
+   private void encryptMessage(){
+
+        for (int indexIterator = 0; indexIterator < messageAsAlphabetIndexes.length; indexIterator++){
+
+            messageAsAlphabetIndexes[indexIterator] = messageAsAlphabetIndexes[indexIterator] + n
+        }
+   }
 
 
 
