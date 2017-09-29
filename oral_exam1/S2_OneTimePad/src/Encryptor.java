@@ -4,19 +4,17 @@
 
 public class Encryptor {
 
-    final static char alphabet[] = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O',
+    private final static char alphabet[] = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O',
             'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'};
 
     private int n;
-    private char message[];
+    private int messageAsAlphabetIndexes[];
     private char cipheredMessage[];
 
     public Encryptor(String message, int n) throws Exception {
 
         message = message.toUpperCase();
-        validateMessage(message.toCharArray());
-        this.message = message.toCharArray();
-
+        messageAsAlphabetIndexes = validateAndConvertMessage(message.toCharArray());
         this.n = n;
     }
 
@@ -24,9 +22,12 @@ public class Encryptor {
      * This method will throw an exception if a character in the given character array is not a letter. This method
      * is static because it can be used without creating an object of the class, and can be used in the constructor.
      * It will traverse the character array given, and if the character is not a letter it will throw an exception.
+     * Next, when the the letter is matched with the letter in the index, it will set the value in the
+     * alphabetIndexArray (corresponding with the letter in the message character array) to the current index.
+     * If the character is a space, it is flagged with the value of -1.
      * @param message the message given to us as a character array
-     * @return alphabetIndexArray the
-     *
+     * @return alphabetIndexArray, an array containing the letters of the message array converted to the corresponding
+     * index of the static alphabet array instance variable. This will have the same length as the message array.
      */
     private static int[] validateAndConvertMessage(char message[]) throws Exception {
 
@@ -64,10 +65,7 @@ public class Encryptor {
         return alphabetIndexArray;
     }
 
-    private static void convertToAlphabetIndex(char message[]){
-
-
-    }
+    encryptMessa
 
 
 
