@@ -8,13 +8,15 @@ public class Encryptor {
             'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'};
 
     private int n;
-    private int messageAsAlphabetIndexes[];
-    private char cipheredMessage[];
+    private int messageAsIndexes[];
+    private char encryptedMessage[];
+    private static final int spaceFlag = -1;
+    private static final char spaceCharacter = ' ';
 
     public Encryptor(String message, int n) throws Exception {
 
         message = message.toUpperCase();
-        messageAsAlphabetIndexes = validateAndConvertMessage(message.toCharArray());
+        messageAsIndexes = validateAndConvertMessage(message.toCharArray());
         this.n = n;
     }
 
@@ -31,7 +33,6 @@ public class Encryptor {
      */
     private static int[] validateAndConvertMessage(char message[]) throws Exception {
 
-        final char spaceCharacter = ' ';
         int alphabetIndexArray[] = new int[message.length];
 
         for (int messageIterator = 0; messageIterator < message.length; messageIterator++){
@@ -55,7 +56,7 @@ public class Encryptor {
                 /* else if the character is a space, flag with the -1 integer */
                 else if(message[messageIterator] == spaceCharacter){
 
-                    alphabetIndexArray[messageIterator] = -1;
+                    alphabetIndexArray[messageIterator] = spaceFlag;
                 }
 
             }
@@ -65,11 +66,33 @@ public class Encryptor {
         return alphabetIndexArray;
     }
 
-   private void encryptMessage(){
 
-        for (int indexIterator = 0; indexIterator < messageAsAlphabetIndexes.length; indexIterator++){
+    public char[] getEncryptedMessage() {
+        this.encryptMessage();
+        return encryptedMessage;
+    }
 
-            messageAsAlphabetIndexes[indexIterator] = messageAsAlphabetIndexes[indexIterator] + n
+    private void encryptMessage(){
+
+        int newIndex;
+
+        for (int messageIterator = 0; messageIterator < messageAsIndexes.length; messageIterator++){
+
+            if(messageAsIndexes[messageIterator] == spaceFlag){
+
+                encryptedMessage[messageIterator] = spaceCharacter;
+            }
+            else {
+                newIndex = messageAsIndexes[messageIterator] + n;
+
+                if (newIndex > alphabet.length) {
+
+                    newIndex = newIndex - alphabet.length;
+                }
+
+                encryptedMessage[messageIterator] = alphabet[newIndex];
+
+            }
         }
    }
 
