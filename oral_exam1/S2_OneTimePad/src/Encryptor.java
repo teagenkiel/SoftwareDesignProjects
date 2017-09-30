@@ -17,7 +17,11 @@ public class Encryptor {
 
         message = message.toUpperCase();
         messageAsIndexes = validateAndConvertMessage(message.toCharArray());
+        if(n <= 0){
+            throw new Exception("The offset must be larger than zero");
+        }
         this.n = n;
+        encryptedMessage = new char[message.length()];
     }
 
     /**
@@ -31,7 +35,7 @@ public class Encryptor {
      * @return alphabetIndexArray, an array containing the letters of the message array converted to the corresponding
      * index of the static alphabet array instance variable. This will have the same length as the message array.
      */
-    private static int[] validateAndConvertMessage(char message[]) throws Exception {
+    protected static int[] validateAndConvertMessage(char message[]) throws Exception {
 
         int alphabetIndexArray[] = new int[message.length];
 
@@ -68,6 +72,7 @@ public class Encryptor {
 
 
     public char[] getEncryptedMessage() {
+
         this.encryptMessage();
         return encryptedMessage;
     }
@@ -78,6 +83,7 @@ public class Encryptor {
 
         for (int messageIterator = 0; messageIterator < messageAsIndexes.length; messageIterator++){
 
+
             if(messageAsIndexes[messageIterator] == spaceFlag){
 
                 encryptedMessage[messageIterator] = spaceCharacter;
@@ -85,13 +91,12 @@ public class Encryptor {
             else {
                 newIndex = messageAsIndexes[messageIterator] + n;
 
-                if (newIndex > alphabet.length) {
+                while (newIndex >= alphabet.length) {
 
                     newIndex = newIndex - alphabet.length;
                 }
 
                 encryptedMessage[messageIterator] = alphabet[newIndex];
-
             }
         }
    }
