@@ -50,6 +50,39 @@ public class Encryptor {
     }
 
     /**
+     * @param message the new message to be encrypted
+     * @throws Exception if the message has non-letters
+     */
+    public void setNewMessage(char message[]) throws Exception {
+
+        this.messageAsIndexes = validateAndConvertMessage(message);
+        encryptedMessage = new char[message.length];
+    }
+
+    /**
+     * If a string wants to be given instead
+     * @param message the message to be encrypted
+     * @throws Exception if the message has non-letters
+     */
+    public void setNewMessage(String message) throws Exception{
+
+        this.setNewMessage(message.toCharArray());
+    }
+
+    /**
+     * @param n the offset of the letters desired
+     * @throws Exception if n is less than or equal to zero
+     */
+    public void setN(int n) throws Exception {
+        if(n <= 0){
+            throw new Exception("The offset must be larger than zero");
+        }
+        this.n = n;
+    }
+
+
+
+    /**
      * This method will be used to validate a message and convert it into an index of the alphabet array. This method
      * is static because it can be used without creating an object of the class, and can be used in the constructor.
      * It will traverse the character array given, and if the character is not a letter it will throw an exception.

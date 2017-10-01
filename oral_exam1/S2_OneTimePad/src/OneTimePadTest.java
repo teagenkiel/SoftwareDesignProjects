@@ -1,3 +1,9 @@
+/**
+ * This class will be used as the main driver program to test the Encryptor and Decryptor classes. It will take in the
+ * encrypted message and offset n and encrypt the message and display it to the user. Then you will be able to enter the
+ * encrypted message and its offset to the program and it will decrypt the message back and display it to the user.
+ */
+
 import java.util.Scanner;
 
 public class OneTimePadTest {
@@ -32,9 +38,6 @@ public class OneTimePadTest {
                 System.out.printf("Exception: %s%n", messageException.getMessage());
             }
         }
-
-
-
 
     }
 }
