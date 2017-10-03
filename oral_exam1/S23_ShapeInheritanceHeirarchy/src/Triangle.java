@@ -4,7 +4,7 @@
 
 import java.awt.Graphics;
 
-public class Triangle extends TwoDimensionalPolygon {
+public class Triangle extends Polygon {
 
     private StraightLine base;
     private StraightLine side1;
