@@ -17,6 +17,7 @@ public class Polygon extends TwoDimensionalShape{
         this.perimeter = perimeter;
     }
 
+
     /**
      * This static method will compute the angle between two intersecting lines using the
      * equation: tangent(theta) = |(m1-m2)/(1+m1m2)|. This method will return zero if the
@@ -41,6 +42,7 @@ public class Polygon extends TwoDimensionalShape{
         return Math.toDegrees(Math.atan(Math.abs( (slope1 - slope2) / (1 + (slope1 * slope2)))));
 
     }
+
 }
 
 

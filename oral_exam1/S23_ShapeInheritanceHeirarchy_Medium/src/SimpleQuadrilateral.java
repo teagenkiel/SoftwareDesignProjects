@@ -1,5 +1,6 @@
 /**
- *In simple quadrilaterals, lines AC and BD do not intersect.
+ *The only stipulation for simple quadrilaterals is that they cannot self-intersect,
+ * therefor lines AC and BD cannot intersect.
  *
  */
 public class SimpleQuadrilateral extends Quadrilateral {
@@ -10,7 +11,7 @@ public class SimpleQuadrilateral extends Quadrilateral {
         super(baseABLength, sideACLength, sideBDLength, angleA, angleB);
 
 
-
+        validateSimpleQuadrilateral(baseABLength, sideACLength, sideBDLength, angleA, angleB);
 
     }
 

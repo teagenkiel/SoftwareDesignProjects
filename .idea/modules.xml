@@ -7,6 +7,7 @@
       <module fileurl="file://$PROJECT_DIR$/lab/20170911_Quiz/20170911_Quiz.iml" filepath="$PROJECT_DIR$/lab/20170911_Quiz/20170911_Quiz.iml" />
       <module fileurl="file://$PROJECT_DIR$/lab/20170918_Quiz/20170918_Quiz.iml" filepath="$PROJECT_DIR$/lab/20170918_Quiz/20170918_Quiz.iml" />
       <module fileurl="file://$PROJECT_DIR$/lab/20170929_Quiz.iml" filepath="$PROJECT_DIR$/lab/20170929_Quiz.iml" />
+      <module fileurl="file://$PROJECT_DIR$/oral_exam1/22-7_RandomCircle_Easy/22-7_RandomCircle_Easy.iml" filepath="$PROJECT_DIR$/oral_exam1/22-7_RandomCircle_Easy/22-7_RandomCircle_Easy.iml" />
       <module fileurl="file://$PROJECT_DIR$/class_demos/ch03/Fig03_12/Fig03_12.iml" filepath="$PROJECT_DIR$/class_demos/ch03/Fig03_12/Fig03_12.iml" />
       <module fileurl="file://$PROJECT_DIR$/class_demos/ch03/Fig03_13/Fig03_13.iml" filepath="$PROJECT_DIR$/class_demos/ch03/Fig03_13/Fig03_13.iml" />
       <module fileurl="file://$PROJECT_DIR$/class_demos/ch04/Fig04_04-05/Fig04_04-05.iml" filepath="$PROJECT_DIR$/class_demos/ch04/Fig04_04-05/Fig04_04-05.iml" />
@@ -56,9 +57,11 @@
       <module fileurl="file://$PROJECT_DIR$/class_demos/supplemental/HelloTemp/HelloTemp.iml" filepath="$PROJECT_DIR$/class_demos/supplemental/HelloTemp/HelloTemp.iml" />
       <module fileurl="file://$PROJECT_DIR$/class_demos/supplemental/HelloWorld/HelloWorld.iml" filepath="$PROJECT_DIR$/class_demos/supplemental/HelloWorld/HelloWorld.iml" />
       <module fileurl="file://$PROJECT_DIR$/lab/Myfig2-6/Myfig2-6.iml" filepath="$PROJECT_DIR$/lab/Myfig2-6/Myfig2-6.iml" />
-      <module fileurl="file://$PROJECT_DIR$/oral_exam1/S1_Computus/S1_Computus.iml" filepath="$PROJECT_DIR$/oral_exam1/S1_Computus/S1_Computus.iml" />
-      <module fileurl="file://$PROJECT_DIR$/oral_exam1/S23_ShapeInheritanceHeirarchy/S23_ShapeInheritanceHeirarchy.iml" filepath="$PROJECT_DIR$/oral_exam1/S23_ShapeInheritanceHeirarchy/S23_ShapeInheritanceHeirarchy.iml" />
+      <module fileurl="file://$PROJECT_DIR$/oral_exam1/S10_ArabicToRomanGUI_Medium/S10_ArabicToRomanGUI_Medium.iml" filepath="$PROJECT_DIR$/oral_exam1/S10_ArabicToRomanGUI_Medium/S10_ArabicToRomanGUI_Medium.iml" />
+      <module fileurl="file://$PROJECT_DIR$/oral_exam1/S1_Computus_Medium/S1_Computus_Medium.iml" filepath="$PROJECT_DIR$/oral_exam1/S1_Computus_Medium/S1_Computus_Medium.iml" />
+      <module fileurl="file://$PROJECT_DIR$/oral_exam1/S23_ShapeInheritanceHeirarchy_Medium/S23_ShapeInheritanceHeirarchy_Medium.iml" filepath="$PROJECT_DIR$/oral_exam1/S23_ShapeInheritanceHeirarchy_Medium/S23_ShapeInheritanceHeirarchy_Medium.iml" />
       <module fileurl="file://$PROJECT_DIR$/oral_exam1/S2_OneTimePad.iml" filepath="$PROJECT_DIR$/oral_exam1/S2_OneTimePad.iml" />
+      <module fileurl="file://$PROJECT_DIR$/oral_exam1/S2_OneTimePad_Easy/S2_OneTimePad_Easy.iml" filepath="$PROJECT_DIR$/oral_exam1/S2_OneTimePad_Easy/S2_OneTimePad_Easy.iml" />
       <module fileurl="file://$PROJECT_DIR$/class_demos/ch15/SerializationApps/SerializationApps.iml" filepath="$PROJECT_DIR$/class_demos/ch15/SerializationApps/SerializationApps.iml" />
       <module fileurl="file://$PROJECT_DIR$/class_demos/supplemental/SupermarketSimulation/SupermarketSimulation.iml" filepath="$PROJECT_DIR$/class_demos/supplemental/SupermarketSimulation/SupermarketSimulation.iml" />
       <module fileurl="file://$PROJECT_DIR$/class_demos/ch15/TextFileApps/TextFileApps.iml" filepath="$PROJECT_DIR$/class_demos/ch15/TextFileApps/TextFileApps.iml" />

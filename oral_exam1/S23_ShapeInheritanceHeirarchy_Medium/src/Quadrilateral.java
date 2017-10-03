@@ -11,27 +11,29 @@ public class Quadrilateral extends Polygon {
     private StraightLine sideBD;
     private StraightLine sideCD;
     private double angleA;
-    private double angleB;
 
 
 
     public Quadrilateral(double baseABLength, double sideACLength, double sideBDLength, double angleA, double angleB)
             throws Exception{
+        final int vertexAIndex = 0;
+        final int vertexBIndex = 1;
+        final int vertexCIndex = 2;
+        final int vertexDIndex = 3;
 
         validateAngle(angleA);
         validateAngle(angleB);
 
-        StraightLine baseAB = new StraightLine(baseABLength);
-        StraightLine sideAC = new StraightLine(sideACLength);
-        StraightLine sideBD = new StraightLine(sideBDLength);
-        StraightLine sideCD = new StraightLine();
+        double[][] quadVertices =
+                computeQuadrilateralCoordinates(baseABLength, sideACLength, sideBDLength, angleA, angleB);
 
-        this.baseAB = baseAB;
+
+
+        this.baseAB = new StraightLine(quadVertices[vertexAIndex], quadVertices[vertexBIndex]);
         this.sideAC = sideAC;
         this.sideBD = sideBD;
         this.sideCD = sideCD;
         this.angleA = angleA;
-        this.angleB = angleB;
     }
 
     private static void validateAngle(double angle) throws Exception{
@@ -43,31 +45,26 @@ public class Quadrilateral extends Polygon {
     }
 
 
-    private void computeQuadrilateralCoordinates(){
-
-        System.out.println("sideBD length" + sideBD.getLength());
+    private static double[][] computeQuadrilateralCoordinates(double baseABLength, double sideACLength, double sideBDLength,
+                                                              double angleA, double angleB){
 
         double Ax = 0;
         double Ay = 0;
-        double Bx = baseAB.getLength();
+        double Bx = baseABLength;
         double By = 0;
-        double Cx = Math.cos(Math.toRadians(angleA)) * sideAC.getLength();
-        double Cy = Math.sin(Math.toRadians(angleA)) * sideAC.getLength();
+        double Cx = Math.cos(Math.toRadians(angleA)) * sideACLength;
+        double Cy = Math.sin(Math.toRadians(angleA)) * sideACLength;
         /* the normal cos * BDlength computes the x-coordinate of point D in relation to point B, so we add
             the base length to put the coordinate in relation to the origin. */
-        double Dx = baseAB.getLength() + Math.cos(Math.toRadians(180 - angleB)) * sideBD.getLength();
-        double Dy = Math.sin(Math.toRadians(180 - angleB)) * sideBD.getLength();
+        double Dx = baseABLength + Math.cos(Math.toRadians(180 - angleB)) * sideBDLength;
+        double Dy = Math.sin(Math.toRadians(180 - angleB)) * sideBDLength;
 
-        baseAB.setNewCoordinates(Ax, Ay, Bx, By);
-        sideAC.setNewCoordinates(Ax, Ay, Cx, Cy);
-        sideBD.setNewCoordinates(Bx, By, Dx, Dy);
-        sideCD.setNewCoordinates(Cx, Cy, Dx, Dy);
 
+        return new double[][]{{Ax,Ay},{Bx,By},{Cx,Cy},{Dx,Dy}};
     }
 
     public void drawQuadrilateral(Graphics g, int centerX, int centerY){
 
-        this.computeQuadrilateralCoordinates();
         baseAB.drawStraightLine(g, centerX, centerY);
         sideAC.drawStraightLine(g, centerX, centerY);
         sideBD.drawStraightLine(g, centerX, centerY);

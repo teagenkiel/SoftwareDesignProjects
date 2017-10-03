@@ -18,8 +18,8 @@ public class ShapeDrawCanvas extends JPanel{
 
 
         try {
-            ComplexQuadrilateral myQuadrilateral = new ComplexQuadrilateral(100, 200,
-                    50, 10, 75);
+            SimpleQuadrilateral myQuadrilateral = new SimpleQuadrilateral(100, 200,
+                    200, 90, 75);
             myQuadrilateral.drawQuadrilateral(g, getWidth()/2, getHeight()/2);
 
         } catch (Exception quadrilateralException) {
