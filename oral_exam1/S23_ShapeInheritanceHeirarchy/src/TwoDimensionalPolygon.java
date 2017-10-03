@@ -4,7 +4,7 @@
  *
  *
  */
-public class TwoDimensionalShape extends Shape {
+public class TwoDimensionalPolygon extends Shape {
 
     private double area;
     private double perimeter;

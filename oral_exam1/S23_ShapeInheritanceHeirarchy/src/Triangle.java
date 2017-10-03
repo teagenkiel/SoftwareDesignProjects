@@ -4,32 +4,22 @@
 
 import java.awt.Graphics;
 
-public class Triangle extends TwoDimensionalShape{
+public class Triangle extends TwoDimensionalPolygon {
 
     private StraightLine base;
     private StraightLine side1;
     private StraightLine side2;
 
     /**
-     * Main constructor for class Triangle. Takes in three straight line objects and will for them into a
-     * triangle.
-     * @param base
-     * @param side1
-     * @param side2
-     */
-    public Triangle(StraightLine base, StraightLine side1, StraightLine side2){
-        this.base = base;
-        this.side1 = side1;
-        this.side2 = side2;
-    }
-
-    /**
-     * Easier constructor if the user wants to enter side lengths instead of instantiating 3 StraightLine Objects
+     * Main constructor for class Triangle. The constructor takes in the lengths of all three sides, creates
+     * a StraightLine object (with corresponding length) for each, and sets them equal to the instance variables.
      * @param baseLength the length of the base
      * @param side1Length the length of side 1
      * @param side2Length the length of side 2
      */
-    public Triangle(double baseLength, double side1Length, double side2Length){
+    public Triangle(double baseLength, double side1Length, double side2Length) throws Exception {
+
+        validateTriangle(baseLength, side1Length, side2Length);
         StraightLine base = new StraightLine(baseLength);
         StraightLine side1 = new StraightLine(side1Length);
         StraightLine side2 = new StraightLine(side2Length);
@@ -40,9 +30,25 @@ public class Triangle extends TwoDimensionalShape{
     }
 
     /**
+     * This method checks if a valid triangle can be made from the given side lengths. A triangle cannot be
+     * made if one side is greater than or equal to the sum of the other two sides.
+     * @param side1 first side of the triangle
+     * @param side2 second side of the triangle
+     * @param side3 third side of the triangle
+     * @throws Exception if a valid triangle cannot be made
+     */
+    private static void validateTriangle(double side1, double side2, double side3) throws Exception{
+        if( (side1 + side2) <= side3 || (side1 + side3) <= side2 || (side2 + side3) <= side1){
+
+            throw new IllegalArgumentException("Invalid triangle. One side cannot be larger than " +
+                    "or equal to the other two combined");
+        }
+    }
+
+    /**
      * This method will compute the third vertex of the triangle when we assume that we know the two vertices of
      * the base edge, which are (0,0) and (length of base, 0). This computation is done by using the three distance
-     * formulas for each side and solving for the x and y coordinate of the third vertex, and with help from
+     * formulas for each side and solving for the x and y coordinate of the third vertex, with help from
      * math.stackexchange.com. This method also simplifies the variables to ease the readability of the code.
      * The base has vertices 'A' and 'B' and the vertex 'C' is the coordinate we are solving for.
      * Base = line AB, side1 = line AC, side2 = line BC.
@@ -66,12 +72,20 @@ public class Triangle extends TwoDimensionalShape{
 
     }
 
+    /**
+     * This method uses the "drawStraightLine()" method in each edge of the triangle to draw the built triangle using
+     * swing GUI paintComponent method. The method first calls the compute coordinates method to make sure each
+     * StraightLine has the correct coordinates.
+     * @param g the Graphics awt object
+     * @param centerX the center x-coordinate of the JPanel
+     * @param centerY the center y-coordinate of the JPanel
+     */
     public void drawTriangle(Graphics g, int centerX, int centerY){
 
+        this.computeTriangleCoordinates();
         base.drawStraightLine(g, centerX, centerY);
         side1.drawStraightLine(g, centerX, centerY);
         side2.drawStraightLine(g, centerX, centerY);
-
     }
 
     /**

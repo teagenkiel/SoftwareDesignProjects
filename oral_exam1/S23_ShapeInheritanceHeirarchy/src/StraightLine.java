@@ -4,7 +4,6 @@
  */
 
 import java.awt.Graphics;
-import javax.swing.JPanel;
 
 public class StraightLine extends OneDimensionalShape{
 
@@ -17,9 +16,21 @@ public class StraightLine extends OneDimensionalShape{
     }
 
 
-    public StraightLine(double length){
+    public StraightLine(double length) throws Exception{
         super(length);
     }
+
+    public StraightLine(){ super(); }
+
+
+    @Override
+    public void setNewCoordinates(double x1, double y1, double x2, double y2) {
+
+        super.setNewCoordinates(x1, y1, x2, y2);
+        this.setLength(computeDistance(x1, y1, x2, y2));
+    }
+
+
 
     /**
      * This method will use the given Graphics awt to draw a straight line between the two coordinate pairs defined.

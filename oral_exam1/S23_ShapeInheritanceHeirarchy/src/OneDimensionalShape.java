@@ -23,9 +23,17 @@ public class OneDimensionalShape extends Shape {
 
     }
 
-    public OneDimensionalShape(double length){
+
+    public OneDimensionalShape(double length) throws Exception{
+
+        if(length < 0){
+            throw new IllegalArgumentException("Invalid length. Length cannot be negative");
+        }
         this.length = length;
+         //instantiate coordinates to zero so they can be set
     }
+
+    public OneDimensionalShape(){}
 
     public void setNewCoordinates(double x1, double y1, double x2, double y2) {
 
