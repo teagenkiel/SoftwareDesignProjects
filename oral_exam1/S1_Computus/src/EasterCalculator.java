@@ -127,9 +127,9 @@ public class EasterCalculator {
      * This method will complete the computus algorithm by calling the calculateMonth and calculateDay
      * functions and storing the value they compute in the monthAsInteger and day instance variables.
      * Then uses the Calendar enumeration to convert the month from an integer to a string.
-     * @throws Exception if the month value is bigger than 12
+     * catches Exception if the monthAsInteger is bigger than 12
      */
-    public void computus() {
+    public void computus(){
 
         this.monthAsInteger = (int)this.calculateMonth();
         this.day = (int)calculateDay();

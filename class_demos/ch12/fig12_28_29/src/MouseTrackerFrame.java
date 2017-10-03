@@ -37,6 +37,7 @@ public class MouseTrackerFrame extends JFrame {
         public void mouseClicked(MouseEvent event) {
             statusBar.setText(String.format("Clicked at [%d, %d]",
                     event.getX(), event.getY()));
+            mousePanel.setBackground(Color.GREEN);
         }
 
         // handle event when mouse pressed
@@ -51,6 +52,7 @@ public class MouseTrackerFrame extends JFrame {
         public void mouseReleased(MouseEvent event) {
             statusBar.setText(String.format("Released at [%d, %d]",
                     event.getX(), event.getY()));
+            mousePanel.setBackground(Color.GREEN);
         }
 
         // handle event when mouse enters area
@@ -74,6 +76,7 @@ public class MouseTrackerFrame extends JFrame {
         public void mouseDragged(MouseEvent event) {
             statusBar.setText(String.format("Dragged at [%d, %d]",
                     event.getX(), event.getY()));
+            mousePanel.setBackground(Color.BLUE);
         }
 
         // handle event when user moves mouse
