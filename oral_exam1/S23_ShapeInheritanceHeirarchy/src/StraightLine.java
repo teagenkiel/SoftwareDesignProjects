@@ -7,6 +7,7 @@ import java.awt.Graphics;
 
 public class StraightLine extends OneDimensionalShape{
 
+    private double slope;
 
     public StraightLine(double x1, double y1, double x2, double y2){
 
@@ -30,7 +31,10 @@ public class StraightLine extends OneDimensionalShape{
         this.setLength(computeDistance(x1, y1, x2, y2));
     }
 
-
+    public double getSlope() throws Exception {
+        this.computeSlope();
+        return slope;
+    }
 
     /**
      * This method will use the given Graphics awt to draw a straight line between the two coordinate pairs defined.
@@ -65,5 +69,23 @@ public class StraightLine extends OneDimensionalShape{
         return Math.sqrt(((x2-x1)*(x2-x1)) + ((y2-y1)*(y2-y1)));
 
     }
+
+    /**
+     * This method computes the slope of the line using the two coordinate pairs that belong to the object.
+     * Slope equation: m = (y2-y1)/(x2-x1)
+     * @throws Exception if there are no coordinates, i.e. they have not been computed for this object yet
+     */
+    private void computeSlope() throws Exception{
+
+        if(this.getCoordinatePair1() == null){
+            throw new Exception("The coordinates for this line have not been computed yet");
+        }
+
+        this.slope =  (this.getCoordinatePair2()[1] - this.getCoordinatePair1()[1]) /
+                (this.getCoordinatePair2()[0] - this.getCoordinatePair1()[0]);
+
+    }
+
+
 
 }

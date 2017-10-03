@@ -53,8 +53,9 @@ public class Quadrilateral extends TwoDimensionalPolygon {
         double By = 0;
         double Cx = Math.cos(Math.toRadians(angleA)) * sideAC.getLength();
         double Cy = Math.sin(Math.toRadians(angleA)) * sideAC.getLength();
-        double Dx = Math.cos(Math.toRadians(180 - angleB)) * sideBD.getLength();
-        System.out.println("Dx: " + Dx);
+        /* the normal cos * BDlength computes the x-coordinate of point D in relation to point B, so we add
+            the base length to put the coordinate in relation to the origin. */
+        double Dx = baseAB.getLength() + Math.cos(Math.toRadians(180 - angleB)) * sideBD.getLength();
         double Dy = Math.sin(Math.toRadians(180 - angleB)) * sideBD.getLength();
 
         baseAB.setNewCoordinates(Ax, Ay, Bx, By);
@@ -74,6 +75,60 @@ public class Quadrilateral extends TwoDimensionalPolygon {
     }
 
 
+    /**
+     * This method will compute the perimeter by adding together the length of each side.
+     */
+    private void computePerimeter(){
+
+        this.setPerimeter(baseAB.getLength() + sideAC.getLength() + sideBD.getLength() + sideCD.getLength());
+    }
+
+
+    /**
+     * This method will use Bretschneider's formula to compute the area of a quadrilateral.
+     */
+    private void computeArea(){
+
+        if(this.getPerimeter() == 0){
+            computePerimeter();
+        }
+
+        double s = this.getPerimeter() / 2; //computes semiperimeter
+        double theta = angleA + computeAngle(sideBD, sideCD);
+        double dAB = baseAB.getLength();
+        double dAC = sideAC.getLength();
+        double dBD = sideBD.getLength();
+        double dCD = sideCD.getLength();
+
+        this.setArea(Math.sqrt( ((s-dAB)*(s-dAC)*(s-dBD)*(s-dCD)) -
+                ((.5)*dAB*dAC*dBD*dCD*(1 + Math.cos(Math.toRadians(theta)))) ));
+
+    }
+
+    /**
+     * This static method will compute the angle between two intersecting lines using the
+     * equation: tangent(theta) = |(m1-m2)/(1+m1m2)|. This method will return zero if the
+     * lines are parallel. The coordinates of each line must be set or computed prior to
+     * calling this method.
+     * @param line1 the first intersecting line
+     * @param line2 the second intersecting line
+     * @return the computed angle in degrees
+     */
+    private static double computeAngle(StraightLine line1, StraightLine line2){
+
+        double slope1 = 0;
+        double slope2 = 0;
+        try {
+             slope1 = line1.getSlope();
+             slope2 = line2.getSlope();
+        } catch (Exception e) { //catches exception if the coordinates are not set in either of the line objects
+            System.out.printf("Exception: %s%n", e.getMessage());
+        }
+
+
+        return Math.toDegrees(Math.atan(Math.abs( (slope1 - slope2) / (1 + (slope1 * slope2)))));
+
+    }
 
 
 
