@@ -1,5 +1,9 @@
 /**
- *Either you have two vertices and a length between them or you have nothing.
+ *This class extends the OneDimensionalShape class in order to create an object which is a straight line
+ * between two vertices. This class adds the instance variables "length" and "slope" which are used to store
+ * the value of the straight-path distance between the vertices and the slope in relation to the coordinate plane,
+ * respectively. Lastly, there is a method which will use the Graphics AWT to draw a line on the screen when used in
+ * conjunction with the paintComponent method of the JPanel swing GUI.
  *
  */
 
@@ -18,22 +22,26 @@ public class StraightLine extends OneDimensionalShape{
 
     }
 
+
     /**
-     * This overridden method double checks to make sure that the object's length has been set. If it hasn't,
-     * compute the length by using the new coordinates given. It will also compute the
-     * @param x1 x-coordinate 1
-     * @param y1 y-coordinate 1
-     * @param x2 x-coordinate 2
-     * @param y2 y-coordinate 2
+     * This method overrides the same method in the superclass to include the computation and storage of the
+     * length and slope variables.
+     * @param vertex1 the first vertex to set
+     * @param vertex2 the second vertex to set
      */
     @Override
-    public void setNewCoordinates(double x1, double y1, double x2, double y2) {
+    public void setNewCoordinates(Vertex vertex1, Vertex vertex2) {
 
-        super.setNewCoordinates(x1, y1, x2, y2);
-        if(this.getLength() == 0) {
-            this.setLength(computeDistance(x1, y1, x2, y2));
-        }
-        this.slope = computeSlope(x1, y1, x2, y2);
+        super.setNewCoordinates(vertex1, vertex2);
+        this.length = computeDistance(vertex1, vertex2);
+        this.slope = computeSlope(vertex1, vertex2);
+    }
+
+    /**
+     * @return the length of the straight line between vertices 1 and 2
+     */
+    public double getLength() {
+        return length;
     }
 
     /**
@@ -57,38 +65,43 @@ public class StraightLine extends OneDimensionalShape{
     public void drawStraightLine(Graphics g, int centerX, int centerY ){
 
         /* add center coordinate to original coordinate */
-        int adjustedVertex1X = centerX + (int) getVertex1()[VertexIndex.X_COORDINATE];
+        int adjustedVertex1X = centerX + (int) getVertex1().getX();
         /* we subtract here because the y-coordinate is flipped in JPanel */
-        int adjustedVertex1Y = centerY - (int) getVertex1()[VertexIndex.Y_COORDINATE];
-        int adjustedVertex2X = centerX + (int) getVertex2()[VertexIndex.X_COORDINATE];
-        int adjustedVertex2Y = centerY - (int) getVertex2()[VertexIndex.Y_COORDINATE];
+        int adjustedVertex1Y = centerY - (int) getVertex1().getY();
+        int adjustedVertex2X = centerX + (int) getVertex2().getX();
+        int adjustedVertex2Y = centerY - (int) getVertex2().getY();
 
+        /* draws the line on a given JPanel using the adjusted coordinates*/
         g.drawLine(adjustedVertex1X, adjustedVertex1Y, adjustedVertex2X, adjustedVertex2Y);
 
     }
 
     /**
-     *
-     * @param vertex1
-     * @param vertex2
-     * @return
+     *This method will use the distance formula to calculate the straight-path distance between two vertices.
+     * @param vertex1 the first vertex
+     * @param vertex2 the second vertex
+     * @return the straight-path distance from the vertex1 to vertex2
      */
-    private static double computeDistance(double vertex1[], double vertex2[]){
+    public static double computeDistance(Vertex vertex1, Vertex vertex2){
 
+        final int secondPower = 2;
 
-        return Math.sqrt( Math.pow((vertex2[VertexIndex.X_COORDINATE]-vertex1[VertexIndex.X_COORDINATE]), 2)
-                + Math.pow((vertex2[VertexIndex.Y_COORDINATE] - vertex1[VertexIndex.Y_COORDINATE]), 2));
+        return Math.sqrt( Math.pow((vertex2.getX()-vertex1.getX()), secondPower)
+                + Math.pow((vertex2.getY() - vertex1.getY()), secondPower));
 
     }
 
     /**
      * This method computes the slope of the line using the two coordinate pairs that belong to the object.
      * Slope equation: m = (y2-y1)/(x2-x1)
+     * @param vertex1 the first vertex
+     * @param vertex2 the second vertex
+     * @return the slope of the line between vertex1 and vertex2
      */
-    private static double computeSlope(double vertex1[], double vertex2[]){
+    private static double computeSlope(Vertex vertex1, Vertex vertex2){
 
-        return  (vertex2[VertexIndex.Y_COORDINATE] - vertex1[VertexIndex.Y_COORDINATE])
-                    / (vertex2[VertexIndex.X_COORDINATE] - vertex1[VertexIndex.X_COORDINATE]);
+        return  (vertex2.getY() - vertex1.getY())
+                    / (vertex2.getX() - vertex1.getX());
 
     }
 

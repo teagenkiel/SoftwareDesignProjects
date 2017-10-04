@@ -18,9 +18,9 @@ public class ShapeDrawCanvas extends JPanel{
 
 
         try {
-            SimpleQuadrilateral myQuadrilateral = new SimpleQuadrilateral(100, 200,
-                    200, 90, 75);
-            myQuadrilateral.drawQuadrilateral(g, getWidth()/2, getHeight()/2);
+            ScaleneTriangle myTriangle = new ScaleneTriangle(150, 200,
+                    275);
+            myTriangle.drawTriangle(g, getWidth()/2, getHeight()/2);
 
         } catch (Exception quadrilateralException) {
             System.out.printf("Exception: %s%n", quadrilateralException.getMessage());

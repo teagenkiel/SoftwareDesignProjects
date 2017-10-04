@@ -10,6 +10,12 @@ public class Triangle extends Polygon {
     private StraightLine side1;
     private StraightLine side2;
 
+    /* These static variables indicate at which index each vertex lies in the vertexList created by
+     *  the computeTriangleCoordinates method. */
+    private static final int vertexAIndex = 0;
+    private static final int vertexBIndex = 1;
+    private static final int vertexCIndex = 2;
+
     /**
      * Main constructor for class Triangle. The constructor takes in the lengths of all three sides, creates
      * a StraightLine object (with corresponding length) for each, and sets them equal to the instance variables.
@@ -18,15 +24,35 @@ public class Triangle extends Polygon {
      * @param side2Length the length of side 2
      */
     public Triangle(double baseLength, double side1Length, double side2Length) throws Exception {
+        super(computeArea(baseLength,side1Length,side2Length), computePerimeter(baseLength,side1Length,side2Length));
 
         validateTriangle(baseLength, side1Length, side2Length);
-        StraightLine base = new StraightLine(baseLength);
-        StraightLine side1 = new StraightLine(side1Length);
-        StraightLine side2 = new StraightLine(side2Length);
 
-        this.base = base;
-        this.side1 = side1;
-        this.side2 = side2;
+        Vertex[] vertexList = computeTriangleCoordinates(baseLength, side1Length, side2Length);
+        this.base = new StraightLine(vertexList[vertexAIndex], vertexList[vertexBIndex]);
+        this.side1 = new StraightLine(vertexList[vertexAIndex], vertexList[vertexCIndex]);
+        this.side2 = new StraightLine(vertexList[vertexBIndex], vertexList[vertexCIndex]);
+    }
+
+    /**
+     * This method will create and store new measurements in the same fashion as the constructor
+     * based on the side lengths given.
+     * @param baseLength the length of the base
+     * @param side1Length the length of side1
+     * @param side2Length the length of side2
+     * @throws Exception if these sides cannot make a valid triangle
+     */
+    public void setNewMeasurements(double baseLength, double side1Length, double side2Length) throws Exception{
+        super.setNewMeasurements(computeArea(baseLength,side1Length,side2Length),
+                computePerimeter(baseLength,side1Length,side2Length));
+
+        validateTriangle(baseLength, side1Length, side2Length);
+
+        Vertex[] vertexList = computeTriangleCoordinates(baseLength, side1Length, side2Length);
+
+        base.setNewCoordinates(vertexList[vertexAIndex], vertexList[vertexBIndex]);
+        side1.setNewCoordinates(vertexList[vertexAIndex], vertexList[vertexCIndex]);
+        side2.setNewCoordinates(vertexList[vertexBIndex], vertexList[vertexCIndex]);
     }
 
     /**
@@ -53,23 +79,21 @@ public class Triangle extends Polygon {
      * The base has vertices 'A' and 'B' and the vertex 'C' is the coordinate we are solving for.
      * Base = line AB, side1 = line AC, side2 = line BC.
      */
-    private void computeTriangleCoordinates(){
+    private static Vertex[] computeTriangleCoordinates(double baseLength, double side1Length, double side2Length){
 
-        double dAB = base.getLength(); //distance between point A and point B, aka base length
-        double dAC = side1.getLength(); //distance between point A and point C, aka side1 length
-        double dBC = side2.getLength(); //distance between point B and point C, aka side2 length
+        double dAB = baseLength; //distance between point A and point B, aka base length
+        double dAC = side1Length; //distance between point A and point C, aka side1 length
+        double dBC = side2Length; //distance between point B and point C, aka side2 length
 
-        double Ax = 0; //x-coordinate of A
-        double Ay = 0; //y-coordinate of A
-        double Bx = base.getLength(); //x-coordinate of B
-        double By = 0; //y-coordinate of B
+
+        double Ax = Vertex.ORIGIN_X_COORDINATE; //x-coordinate of A
+        double Ay = Vertex.ORIGIN_Y_COORDINATE; //y-coordinate of A
+        double Bx = baseLength; //x-coordinate of B
+        double By = Vertex.ORIGIN_Y_COORDINATE; //y-coordinate of B
         double Cx = ((dAB*dAB) + (dAC*dAC) - (dBC*dBC)) / (2 * dAB); //computes x-coordinate of C
         double Cy = (Math.sqrt((dAB+dAC+dBC)*(dAB+dAC-dBC)*(dAB-dAC+dBC)*(-dAB+dAC+dBC))) / (2*dAB); //computes y-coordinate of C
 
-        base.setNewCoordinates(Ax, Ay, Bx, By); //Sets coordinates of base to A and B
-        side1.setNewCoordinates(Ax, Ay, Cx, Cy); //Sets coordinates of side1 to A and C
-        side2.setNewCoordinates(Bx, By, Cx, Cy); //Sets coordinates of side2 to B and C
-
+        return new Vertex[]{new Vertex(Ax,Ay), new Vertex(Bx, By), new Vertex(Cx, Cy)}; //returns list of created vertices
     }
 
     /**
@@ -82,7 +106,6 @@ public class Triangle extends Polygon {
      */
     public void drawTriangle(Graphics g, int centerX, int centerY){
 
-        this.computeTriangleCoordinates();
         base.drawStraightLine(g, centerX, centerY);
         side1.drawStraightLine(g, centerX, centerY);
         side2.drawStraightLine(g, centerX, centerY);
@@ -91,9 +114,9 @@ public class Triangle extends Polygon {
     /**
      * This method computes the perimeter of a triangle by adding the lengths of all three sides of the triangle.
      */
-    private void computePerimeter(){
+    private static double computePerimeter(double baseLength, double side1Length, double side2Length){
 
-        setPerimeter(base.getLength() + side1.getLength() + side2.getLength());
+        return baseLength + side1Length + side2Length;
     }
 
     /**
@@ -101,15 +124,14 @@ public class Triangle extends Polygon {
      * or height to be known. We are using Heron's formula here in the case that the height cannot be computed
      * (i.e. side 2 extends past the base). This formula is sqrt(s * (s-a) * (s-b) * (s-c)) where s is the semiperimeter
      * and a,b,c are the sides of the triangle.
+     * @return the area of the triangle computed using three side lengths
      */
-    private void computeArea(){
-        if(this.getPerimeter() == 0){ //if perimeter is zero i.e. it hasn't been computed yet, do the computation.
-            this.computePerimeter();
-        }
-        double semiperimeter = (this.getPerimeter() / 2);
+    private static double computeArea(double baseLength, double side1Length, double side2Length){
 
-         setArea(Math.sqrt((semiperimeter) * (semiperimeter - base.getLength()) * (semiperimeter - side1.getLength())
-            * (semiperimeter - side2.getLength())));
+        double semiperimeter = ((baseLength + side1Length + side2Length) / 2);
+
+         return (Math.sqrt((semiperimeter) * (semiperimeter - baseLength) * (semiperimeter - side1Length)
+            * (semiperimeter - side2Length)));
 
     }
 

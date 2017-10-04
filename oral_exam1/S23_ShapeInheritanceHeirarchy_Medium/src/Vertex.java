@@ -8,6 +8,9 @@ public class Vertex extends Shape{
     private double x_coordinate;
     private double y_coordinate;
 
+    public static final int ORIGIN_X_COORDINATE = 0;
+    public static final int ORIGIN_Y_COORDINATE = 0;
+
     /**
      * Main constructor for class Vertex.
      * @param x_coordinate the x-coordinate of the vertex

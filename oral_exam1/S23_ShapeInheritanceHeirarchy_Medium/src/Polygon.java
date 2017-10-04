@@ -8,13 +8,19 @@ public class Polygon extends TwoDimensionalShape{
 
     private double perimeter;
 
+    public Polygon(double area, double perimeter){
+
+        super(area);
+        this.perimeter = perimeter;
+    }
+
+    public void setNewMeasurements(double area, double perimeter) {
+        super.setNewMeasurements(area);
+        this.perimeter = perimeter;
+    }
 
     public double getPerimeter() {
         return perimeter;
-    }
-
-    public void setPerimeter(double perimeter) {
-        this.perimeter = perimeter;
     }
 
 

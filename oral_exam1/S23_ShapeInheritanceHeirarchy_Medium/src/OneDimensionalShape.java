@@ -3,6 +3,9 @@
  * two vertices (defined by coordinates) that are connected. However, different objects of this class may take different
  * paths to get from vertex to vertex (i.e. straight line, arc, squiggly line, etc.). Subclasses of this class
  * can define the certain path to take, and how to compute the length of the line over that path.
+ * Note that every OneDimensionalShape does indeed have a length, but we can't provide that instance variable here
+ * since there is no way to compute it upon construction without knowing the path the line takes. Length must be defined
+ * in a subclass of this class if needed.
  *
  */
 public class OneDimensionalShape extends Shape {
