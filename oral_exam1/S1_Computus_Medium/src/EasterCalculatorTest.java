@@ -37,6 +37,7 @@ public class EasterCalculatorTest {
 
 
                 case (1):
+                    yearFlag = true;
                     while (yearFlag) {
                         try {
                             System.out.println("Please enter a year");
