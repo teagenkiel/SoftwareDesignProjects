@@ -5,7 +5,7 @@
  * to compute a circle's diameter, circumference, and area when given its radius. You can also draw the circle that this
  * object represents by calling the "drawCircle" method in an Overridden paintComponent method of a swing GUI's JPanel.
  *
- *
+ * @author Teagen Kiel
  */
 
 import java.awt.Graphics;
@@ -17,7 +17,7 @@ public class Circle {
     private double diameter;
     private double circumference;
     private double area;
-    public static int MINIMUM_RADIUS = 1; //the lowest possible radius a circle object of this class can take
+    public final static int MINIMUM_RADIUS = 1; //the lowest possible radius a circle object of this class can take
 
     /**
      * This constructor sets the diameter of the circle to the given value.

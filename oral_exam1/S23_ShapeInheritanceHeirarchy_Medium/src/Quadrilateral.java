@@ -16,7 +16,7 @@ public class Quadrilateral extends Polygon {
 
     public Quadrilateral(double baseABLength, double sideACLength, double sideBDLength, double angleA, double angleB)
             throws Exception{
-        super()
+        super();
         final int vertexAIndex = 0;
         final int vertexBIndex = 1;
         final int vertexCIndex = 2;

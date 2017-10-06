@@ -1,4 +1,11 @@
 /**
+ * This class's purpose is to be the main driver program to test our RandomCircleFrame. The RandomCircleFrame
+ * utilizes the RandomCircleCanvas JPanel to create a random circle that is adjustable with a display of the
+ * dimensions.
+ *
+ * @author Teagen Kiel
+ * @see RandomCircleFrame
+ * @see RandomCircleCanvas
  *
  */
 

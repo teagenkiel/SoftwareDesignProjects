@@ -2,14 +2,15 @@
  * This class's purpose is to provide a JPanel with a canvas on which a random circle will be drawn. This canvas will
  * also include various components to alter, renew, and display the dimensions of the circle that is currently drawn.
  *
+ * @author Teagen Kiel
+ * @see Circle
  */
 
 import javax.swing.*;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import java.awt.event.*;
 
 public class RandomCircleCanvas extends JPanel {
 
@@ -21,9 +22,10 @@ public class RandomCircleCanvas extends JPanel {
      * then initialize three components, a JTextArea that will display the dimensions of the circle, a JButton that will
      * set the radius of the circle to a new random number, and a JSlider that will change the radius of the circle
      * based on where the user slides it. We then add the appropriate listeners to the listenerList of the
-     * button and slider, and define the handler for each as an anonymous inner class defining the actions upon
-     * recieving an event.
-     * @param maximumRadius the maximum radius the circle can take upon initialization.
+     * button, slider, and the object itself and define the handler for each as an anonymous inner class
+     * defining the actions upon receiving an event.
+     * @param maximumRadius the maximum radius the circle can take upon initialization. After initialization, the
+     *                      maximum radius will changed based on the height and width of this JPanel object.
      */
     public RandomCircleCanvas(int maximumRadius){
 
@@ -64,16 +66,26 @@ public class RandomCircleCanvas extends JPanel {
                     @Override
                     public void stateChanged(ChangeEvent event) {
                         try {
-                            radiusSlider.setMaximum(Math.min(getWidth()/2, getHeight()/2));
-                            //sets new maximum of the JSlider if the panel has changed size
                             circleToDraw.setRadius(radiusSlider.getValue());
                             //set new radius of the circle to the new value of the JSlider
-                            dimensionsTextArea.setText(circleToDraw.toString());
-                            //show dimensions of the new circle in the TextArea
-                            repaint();
                         } catch (Exception e1) { //if the radius of the circle is below 1
                             System.out.printf("Exception: %s%n", e1.getMessage());
                         }
+                        dimensionsTextArea.setText(circleToDraw.toString());
+                        //show dimensions of the new circle in the TextArea
+                        repaint();
+                    }
+                }
+        );
+
+        this.addComponentListener( //adds a ComponentListener to listenerList of this object
+                new ComponentAdapter() { //using adapter here because we only need to declare one method
+                    @Override
+                    public void componentResized(ComponentEvent e) {
+                        super.componentResized(e);
+
+                        radiusSlider.setMaximum(Math.min(getWidth()/2, getHeight()/2));
+                        //sets new maximum of the JSlider if the panel has changed size the the smaller half-coordinate
                     }
                 }
         );
