@@ -1,5 +1,9 @@
 /**
- *
+ * This class's main purpose is to create an object that represents a circle. Upon construction, you can set your own
+ * radius or not specify one if you want to set one later. This class includes a "random radius calculator" which sets
+ * the radius of the circle object to a random number between two integers given. This class also includes static methods
+ * to compute a circle's diameter, circumference, and area when given its radius. You can also draw the circle that this
+ * object represents by calling the "drawCircle" method in an Overridden paintComponent method of a swing GUI's JPanel.
  *
  *
  */
@@ -13,6 +17,7 @@ public class Circle {
     private double diameter;
     private double circumference;
     private double area;
+    public static int MINIMUM_RADIUS = 1; //the lowest possible radius a circle object of this class can take
 
     /**
      * This constructor sets the diameter of the circle to the given value.
@@ -157,6 +162,11 @@ public class Circle {
         return area;
     }
 
+    /**
+     * toString method to return the circle's dimensions in a formatted manner. Can be used with a JTextArea to
+     * show the dimensions of the circle on a JPanel.
+     * @return a string containing the dimensions of the circle
+     */
     @Override
     public String toString() {
         return "Circle Dimensions" +
