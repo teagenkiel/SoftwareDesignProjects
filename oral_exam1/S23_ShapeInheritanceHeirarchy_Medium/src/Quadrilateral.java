@@ -70,7 +70,7 @@ public class Quadrilateral extends Polygon {
     private static Vertex computeVertexC(double angleA, double sideACLength){
 
         return new Vertex(Math.cos(Math.toRadians(angleA)) * sideACLength,
-                Math.cos(Math.toRadians(angleA)) * sideACLength);
+                Math.sin(Math.toRadians(angleA)) * sideACLength);
     }
 
     /* the normal cos * BDlength computes the x-coordinate of point D in relation to point B, so we add
