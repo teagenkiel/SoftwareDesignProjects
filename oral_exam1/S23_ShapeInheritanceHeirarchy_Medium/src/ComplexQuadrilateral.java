@@ -9,6 +9,7 @@
  */
 public class ComplexQuadrilateral extends Quadrilateral{
 
+    public static final int INTERIOR_ANGLE_SUM_DEGREES = 720;
 
     /**
      * Adds another layer of validation

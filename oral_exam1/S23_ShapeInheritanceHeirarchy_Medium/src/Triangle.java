@@ -6,15 +6,20 @@ import java.awt.Graphics;
 
 public class Triangle extends Polygon {
 
+    public static final int NUMBER_OF_VERTICES = 3;
+    public static final int NUMBER_OF_SIDES = 3;
+    public static final int INTERIOR_ANGLE_SUM_DEGREES = 180;
+
+    /* Where each vertex of a triangle should lie in a created vertex array */
+    public static final int VERTEX_A_INDEX = 0;
+    public static final int VERTEX_B_INDEX = 1;
+    public static final int VERTEX_C_INDEX = 2;
+
     private StraightLine base;
     private StraightLine side1;
     private StraightLine side2;
 
-    /* These static variables indicate at which index each vertex lies in the vertexList created by
-     *  the computeTriangleCoordinates method. */
-    private static final int vertexAIndex = 0;
-    private static final int vertexBIndex = 1;
-    private static final int vertexCIndex = 2;
+
 
     /**
      * Main constructor for class Triangle. The constructor takes in the lengths of all three sides, creates
@@ -29,9 +34,9 @@ public class Triangle extends Polygon {
         validateTriangle(baseLength, side1Length, side2Length);
 
         Vertex[] vertexList = computeTriangleCoordinates(baseLength, side1Length, side2Length);
-        this.base = new StraightLine(vertexList[vertexAIndex], vertexList[vertexBIndex]);
-        this.side1 = new StraightLine(vertexList[vertexAIndex], vertexList[vertexCIndex]);
-        this.side2 = new StraightLine(vertexList[vertexBIndex], vertexList[vertexCIndex]);
+        this.base = new StraightLine(vertexList[VERTEX_A_INDEX], vertexList[VERTEX_B_INDEX]);
+        this.side1 = new StraightLine(vertexList[VERTEX_A_INDEX], vertexList[VERTEX_C_INDEX]);
+        this.side2 = new StraightLine(vertexList[VERTEX_B_INDEX], vertexList[VERTEX_C_INDEX]);
     }
 
     /**
@@ -50,9 +55,9 @@ public class Triangle extends Polygon {
 
         Vertex[] vertexList = computeTriangleCoordinates(baseLength, side1Length, side2Length);
 
-        base.setNewCoordinates(vertexList[vertexAIndex], vertexList[vertexBIndex]);
-        side1.setNewCoordinates(vertexList[vertexAIndex], vertexList[vertexCIndex]);
-        side2.setNewCoordinates(vertexList[vertexBIndex], vertexList[vertexCIndex]);
+        base.setNewCoordinates(vertexList[VERTEX_A_INDEX], vertexList[VERTEX_B_INDEX]);
+        side1.setNewCoordinates(vertexList[VERTEX_A_INDEX], vertexList[VERTEX_C_INDEX]);
+        side2.setNewCoordinates(vertexList[VERTEX_B_INDEX], vertexList[VERTEX_C_INDEX]);
     }
 
     /**
@@ -93,7 +98,11 @@ public class Triangle extends Polygon {
         double Cx = ((dAB*dAB) + (dAC*dAC) - (dBC*dBC)) / (2 * dAB); //computes x-coordinate of C
         double Cy = (Math.sqrt((dAB+dAC+dBC)*(dAB+dAC-dBC)*(dAB-dAC+dBC)*(-dAB+dAC+dBC))) / (2*dAB); //computes y-coordinate of C
 
-        return new Vertex[]{new Vertex(Ax,Ay), new Vertex(Bx, By), new Vertex(Cx, Cy)}; //returns list of created vertices
+        Vertex vertexList[] = new Vertex[NUMBER_OF_VERTICES];
+        vertexList[VERTEX_A_INDEX] = new Vertex(Ax,Ay);
+        vertexList[VERTEX_B_INDEX] = new Vertex(Bx,By);
+        vertexList[VERTEX_C_INDEX] = new Vertex(Cx,Cy);
+        return vertexList; //returns list of created vertices
     }
 
     /**

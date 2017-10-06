@@ -5,6 +5,7 @@
  */
 public class SimpleQuadrilateral extends Quadrilateral {
 
+    public static final int INTERIOR_ANGLE_SUM_DEGREES = 360;
 
     public SimpleQuadrilateral(double baseABLength, double sideACLength, double sideBDLength, double angleA,
                                double angleB) throws Exception {
