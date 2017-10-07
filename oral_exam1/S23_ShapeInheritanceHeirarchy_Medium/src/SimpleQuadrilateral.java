@@ -1,11 +1,13 @@
 /**
- *The only stipulation for simple quadrilaterals is that they cannot self-intersect,
- * therefor lines AC and BD cannot intersect.
+ *This class will create a simple quadrilateral. A simple quadrilateral has no crossing sides (i.e there are no
+ * intersections)
  *
+ * @Teagen Kiel
  */
 public class SimpleQuadrilateral extends Quadrilateral {
 
     public static final int INTERIOR_ANGLE_SUM_DEGREES = 360;
+
 
     public SimpleQuadrilateral(double baseABLength, double sideACLength, double sideBDLength, double angleA,
                                double angleB) throws Exception {
@@ -19,11 +21,11 @@ public class SimpleQuadrilateral extends Quadrilateral {
     private static void validateSimpleQuadrilateral(double baseABLength, double sideACLength, double sideBDLength,
                                                      double angleA, double angleB){
 
-        double Cx = sideACLength * Math.cos(Math.toRadians(angleA)); //x-coordinate of point C
-        double Dx = baseABLength + (sideBDLength * Math.cos(Math.toRadians(180 - angleB))); //x-coordinate of point D
+        Vertex vertexC = computeVertexC(angleA, sideACLength);
+        Vertex vertexD = computeVertexD(angleB, baseABLength, sideBDLength);
 
         //the x-coordinate of point C must be bigger than the x-component of point D for it to be a complex quadrilateral
-        if(Cx >= Dx){
+        if(vertexC.getX() >= vertexD.getX()){
             throw new IllegalArgumentException("Invalid simple quadrilateral. Sides AC and BD cannot intersect.");
 
         }

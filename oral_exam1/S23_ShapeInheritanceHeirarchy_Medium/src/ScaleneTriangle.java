@@ -1,5 +1,8 @@
 /**
+ *This class will create an object that represents a scalene triangle. Every scalene triangle has three sides with
+ * all having a different length.
  *
+ * @author Teagen Kiel
  */
 
 public class ScaleneTriangle extends Triangle{

@@ -1,5 +1,8 @@
 /**
+ * This class will create an object that represents an equilateral triangle. All equilateral triangles
+ * have three sides of equal length and three angles of equal magnitude.
  *
+ * @author Teagen Kiel
  */
 public class EquilateralTriangle extends Triangle {
 

@@ -1,6 +1,8 @@
 /**
+ *This class will create an object that represents an Isosceles Triangle. An Isosceles Triangle has two
+ * sides of equal length and a base.
  *
- *
+ * @author Teagen Kiel
  */
 public class IsoscelesTriangle extends Triangle{
 

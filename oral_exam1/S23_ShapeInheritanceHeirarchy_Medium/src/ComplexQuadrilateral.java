@@ -31,13 +31,12 @@ public class ComplexQuadrilateral extends Quadrilateral{
     private static void validateComplexQuadrilateral(double baseABLength, double sideACLength, double sideBDLength,
                                                      double angleA, double angleB){
 
-        double Cx = sideACLength * Math.cos(Math.toRadians(angleA)); //x-coordinate of point C
-        double Dx = baseABLength + (sideBDLength * Math.cos(Math.toRadians(180 - angleB))); //x-coordinate of point D
+        Vertex vertexC = computeVertexC(angleA, sideACLength);
+        Vertex vertexD = computeVertexD(angleB, baseABLength, sideBDLength);
 
         //the x-coordinate of point C must be bigger than the x-component of point D for it to be a complex quadrilateral
-        if(Cx <= Dx){
+        if(vertexC.getX() <= vertexD.getX()){
             throw new IllegalArgumentException("Invalid complex quadrilateral. Sides AC and BD must intersect.");
-
         }
     }
 }

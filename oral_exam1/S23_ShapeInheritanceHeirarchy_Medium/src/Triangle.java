@@ -19,8 +19,6 @@ public class Triangle extends Polygon {
     private StraightLine side1;
     private StraightLine side2;
 
-
-
     /**
      * Main constructor for class Triangle. The constructor takes in the lengths of all three sides, creates
      * a StraightLine object (with corresponding length) for each, and sets them equal to the instance variables.
@@ -144,5 +142,13 @@ public class Triangle extends Polygon {
 
     }
 
-
+    /**
+     * @return a string containing the values of the instance variables in an object of this class
+     */
+    @Override
+    public String toString() {
+        return "Triangle{" +
+                "Area=" + this.getArea() +
+                ", Perimeter=" + this.getPerimeter() + '}';
+    }
 }

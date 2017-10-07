@@ -14,6 +14,14 @@ public class Polygon extends TwoDimensionalShape{
         this.perimeter = perimeter;
     }
 
+    /**
+     * Copy constructor for polygon
+     * @param polygonToCopy
+     */
+    public Polygon(Polygon polygonToCopy){
+        this(polygonToCopy.getArea(), polygonToCopy.getPerimeter());
+    }
+
     public void setNewMeasurements(double area, double perimeter) {
         super.setNewMeasurements(area);
         this.perimeter = perimeter;

@@ -2,6 +2,7 @@
  * This class's main purpose is to build objects that represent a vertex, or point, on a plane with given x and y
  * coordinates. This class can be added to with ease in order to be used to implement 3D-shapes.
  *
+ * @author Teagen Kiel
  */
 public class Vertex extends Shape{
 
@@ -20,6 +21,15 @@ public class Vertex extends Shape{
 
         this.x_coordinate = x_coordinate;
         this.y_coordinate = y_coordinate;
+    }
+
+    /**
+     * Copy constructor for class Vertex
+     * @param vertex the vertex to copy from
+     */
+    public Vertex(Vertex vertex){
+
+        this(vertex.getX(), vertex.getY());
     }
 
     /**

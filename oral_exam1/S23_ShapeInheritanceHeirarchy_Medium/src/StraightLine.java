@@ -5,6 +5,7 @@
  * respectively. Lastly, there is a method which will use the Graphics AWT to draw a line on the screen when used in
  * conjunction with the paintComponent method of the JPanel swing GUI.
  *
+ * @author Teagen Kiel
  */
 
 import java.awt.Graphics;
@@ -14,14 +15,27 @@ public class StraightLine extends OneDimensionalShape{
     private double length;
     private double slope;
 
+    /**
+     * Main constructor for class StraightLine
+     * @param vertex1 the first vertex, or start of the line
+     * @param vertex2 the second vertex, or end of the line
+     */
     public StraightLine(Vertex vertex1, Vertex vertex2){
 
-        super(vertex1, vertex2);
+        super(new Vertex(vertex1), new Vertex(vertex2));
         this.length = computeDistance(vertex1, vertex2);
         this.slope = computeSlope(vertex1, vertex2);
 
     }
 
+    /**
+     * Copy constructor for class StraightLine
+     * @param straightLine the StraightLine to copy from
+     */
+    public StraightLine(StraightLine straightLine){
+
+        this(straightLine.getVertex1(), straightLine.getVertex2());
+    }
 
     /**
      * This method overrides the same method in the superclass to include the computation and storage of the
@@ -105,4 +119,15 @@ public class StraightLine extends OneDimensionalShape{
 
     }
 
+    /**
+     * toString method for StraightLine. Displays the calculated length and slope of the line.
+     * @return a string containing the instance variable's current values
+     */
+    @Override
+    public String toString() {
+        return "StraightLine{" +
+                "length = " + length +
+                ", slope = " + slope +
+                '}';
+    }
 }

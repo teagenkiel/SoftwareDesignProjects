@@ -7,19 +7,18 @@
 public class Parallelogram extends SimpleQuadrilateral{
 
 
+
     public Parallelogram(double baseLength, double sideLength, double angleAandC) throws Exception {
 
-        super(baseLength, sideLength, sideLength, angleAandC, (180 - angleAandC));
+        super(baseLength, sideLength, sideLength, angleAandC, computeAdjacentAngle(angleAandC));
 
     }
 
-    //@Override
-    //public double getArea(){
-    //}
+    private static double computeAdjacentAngle(double interiorAngle){
 
-    public void computeParallelogramArea(){
+        final int angleSum = 180; //sum of both of the angles is always 180
 
-        double height;
+        return angleSum - interiorAngle;
     }
 
 
