@@ -2,6 +2,8 @@
  *A polygon (/ˈpɒlɪɡɒn/) is a plane figure that is bounded by a finite chain of straight line segments closing in a
  * loop to form a closed polygonal chain or circuit. These segments are called its edges or sides,
  * and the points where two edges meet are the polygon's vertices (singular: vertex) or corners.
+ *
+ * @author Teagen Kiel
  */
 
 public class Polygon extends TwoDimensionalShape{

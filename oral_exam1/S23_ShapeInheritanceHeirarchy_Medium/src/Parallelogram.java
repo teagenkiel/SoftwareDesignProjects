@@ -3,6 +3,7 @@
  * of parallel sides. The opposite or facing sides of a parallelogram are of equal length and the opposite angles of
  * a parallelogram are of equal measure.
  *
+ * @author Teagen Kiel
  */
 public class Parallelogram extends SimpleQuadrilateral{
 

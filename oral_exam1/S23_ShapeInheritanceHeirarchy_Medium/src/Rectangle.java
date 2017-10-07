@@ -1,6 +1,8 @@
 /**
  *
  * In Euclidean plane geometry, a rectangle is a quadrilateral with four right angles.
+ *
+ * @author Teagen Kiel
  */
 public class Rectangle extends Parallelogram{
 

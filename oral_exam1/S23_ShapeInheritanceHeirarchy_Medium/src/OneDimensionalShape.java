@@ -7,6 +7,8 @@
  * since there is no way to compute it upon construction without knowing the path the line takes. Length must be defined
  * in a subclass of this class if needed.
  *
+ * @author Teagen Kiel
+ *
  */
 public class OneDimensionalShape extends Shape {
 

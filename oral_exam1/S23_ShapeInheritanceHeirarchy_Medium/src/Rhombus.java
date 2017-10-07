@@ -2,6 +2,7 @@
  *In Euclidean geometry, a rhombus(◊) (plural rhombi or rhombuses) is a simple (non-self-intersecting) quadrilateral
  * whose four sides all have the same length.
  *
+ * @author Teagen Kiel
  */
 
 public class Rhombus extends Parallelogram{

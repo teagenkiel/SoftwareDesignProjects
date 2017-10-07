@@ -4,7 +4,7 @@
  * side of the crossing (two acute and two reflex, all on the left or all on the right as the figure is traced out) add
  * up to 720°.
  *
- *
+ *@author Teagen Kiel
  *
  */
 public class ComplexQuadrilateral extends Quadrilateral{

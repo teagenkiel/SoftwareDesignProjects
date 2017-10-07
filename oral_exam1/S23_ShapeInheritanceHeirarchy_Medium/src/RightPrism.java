@@ -2,6 +2,8 @@
  *
  *A right prism is a prism in which the joining edges and faces are perpendicular to the base faces.
  * This applies if the joining faces are rectangular.
+ *
+ * @author Teagen Kiel
  */
 public class RightPrism extends ThreeDimensionalShape{
 
