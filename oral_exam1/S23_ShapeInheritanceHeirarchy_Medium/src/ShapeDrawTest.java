@@ -284,6 +284,42 @@ public class ShapeDrawTest {
                     myScanner.nextLine();
                     myScanner.nextLine();
                     break;
+
+                case (14):
+                    while (exceptionFlag) {
+                        try {
+                            System.out.println("Please enter a base and side lengths for the triangle, and" +
+                                    "the height of the prism one by one");
+                            RightPrism myRightPrism = new RightPrism(new Triangle(myScanner.nextDouble(),
+                                    myScanner.nextDouble(), myScanner.nextDouble()), myScanner.nextDouble());
+                            System.out.println(myRightPrism);
+                            exceptionFlag = false;
+                        } catch (Exception exception) {
+                            System.out.printf("Exception: %s%n", exception.getMessage());
+                        }
+                    }
+                    System.out.println("Press enter to continue");
+                    myScanner.nextLine();
+                    myScanner.nextLine();
+                    break;
+
+                case (15):
+                    while (exceptionFlag) {
+                        try {
+                            System.out.println("Please enter a side length for the square and" +
+                                    "the height of the prism one by one");
+                            RightPrism myRightPrism = new RightPrism(new Square(myScanner.nextDouble()),
+                                    myScanner.nextDouble());
+                            System.out.println(myRightPrism);
+                            exceptionFlag = false;
+                        } catch (Exception exception) {
+                            System.out.printf("Exception: %s%n", exception.getMessage());
+                        }
+                    }
+                    System.out.println("Press enter to continue");
+                    myScanner.nextLine();
+                    myScanner.nextLine();
+                    break;
             }
         }
 
