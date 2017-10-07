@@ -16,7 +16,7 @@ public class Polygon extends TwoDimensionalShape{
 
     /**
      * Copy constructor for polygon
-     * @param polygonToCopy
+     * @param polygonToCopy the polygon to be copied
      */
     public Polygon(Polygon polygonToCopy){
         this(polygonToCopy.getArea(), polygonToCopy.getPerimeter());

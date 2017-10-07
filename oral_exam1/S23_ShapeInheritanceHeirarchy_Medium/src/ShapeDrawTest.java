@@ -205,7 +205,7 @@ public class ShapeDrawTest {
                             System.out.println("Please enter the length of the base, the length of the sides," +
                                     "and the interior angle between the left side and base in degrees");
                             Parallelogram myParallelogram = new Parallelogram(myScanner.nextDouble(),
-                                    myScanner.nextDouble(), myScanner.nextDouble())
+                                    myScanner.nextDouble(), myScanner.nextDouble());
                             System.out.println(myParallelogram);
                             exceptionFlag = false;
                         } catch (Exception exception) {

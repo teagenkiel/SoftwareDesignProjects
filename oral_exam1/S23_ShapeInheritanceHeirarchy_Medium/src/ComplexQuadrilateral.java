@@ -4,22 +4,14 @@
  * side of the crossing (two acute and two reflex, all on the left or all on the right as the figure is traced out) add
  * up to 720°.
  *
- * Create other constructor for radians/degrees? Radians should be default, makes code easier to read
+ *
  *
  */
 public class ComplexQuadrilateral extends Quadrilateral{
 
     public static final int INTERIOR_ANGLE_SUM_DEGREES = 720;
 
-    /**
-     * Adds another layer of validation
-     * @param baseABLength
-     * @param sideACLength
-     * @param sideBDLength
-     * @param angleA
-     * @param angleB
-     * @throws Exception
-     */
+    //adds another level of validation
     public ComplexQuadrilateral(double baseABLength, double sideACLength, double sideBDLength, double angleA,
                                 double angleB) throws Exception {
 

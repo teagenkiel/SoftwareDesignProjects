@@ -2,7 +2,7 @@
  *This class will create a simple quadrilateral. A simple quadrilateral has no crossing sides (i.e there are no
  * intersections)
  *
- * @Teagen Kiel
+ * @author Teagen Kiel
  */
 public class SimpleQuadrilateral extends Quadrilateral {
 

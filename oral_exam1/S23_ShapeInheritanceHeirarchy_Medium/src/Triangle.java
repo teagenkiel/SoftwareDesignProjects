@@ -81,6 +81,10 @@ public class Triangle extends Polygon {
      * math.stackexchange.com. This method also simplifies the variables to ease the readability of the code.
      * The base has vertices 'A' and 'B' and the vertex 'C' is the coordinate we are solving for.
      * Base = line AB, side1 = line AC, side2 = line BC.
+     * @param baseLength baselength
+     * @param side1Length side 1 length
+     * @param side2Length side 2 length
+     *
      */
     private static Vertex[] computeTriangleCoordinates(double baseLength, double side1Length, double side2Length){
 
@@ -118,7 +122,7 @@ public class Triangle extends Polygon {
         side2.drawStraightLine(g, centerX, centerY);
     }
 
-    /**
+    /*
      * This method computes the perimeter of a triangle by adding the lengths of all three sides of the triangle.
      */
     private static double computePerimeter(double baseLength, double side1Length, double side2Length){
@@ -126,7 +130,7 @@ public class Triangle extends Polygon {
         return baseLength + side1Length + side2Length;
     }
 
-    /**
+    /*
      * This method uses Heron's formula to calculate the area of a triangle, which doesn't require a base, angle,
      * or height to be known. We are using Heron's formula here in the case that the height cannot be computed
      * (i.e. side 2 extends past the base). This formula is sqrt(s * (s-a) * (s-b) * (s-c)) where s is the semiperimeter
