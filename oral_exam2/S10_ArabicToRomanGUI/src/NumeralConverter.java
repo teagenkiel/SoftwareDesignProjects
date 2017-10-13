@@ -32,41 +32,65 @@ public class NumeralConverter {
     }
 
     /**
-     *
+     * Converts a roman numeral given as a string to its corresponding arabic representation
      * @param romanNumeral a correct and valid modern roman numeral
      * @return
      */
     public static int romanToArabic(String romanNumeral){
 
         final char romanNumeralArray[] = romanNumeral.toCharArray();
+        final int lastPossibleIndex = romanNumeralArray.length - 1;
         int convertedArabicNumeral = 0; //always starts at zero, will be added to with each iteration later
 
-        for(int romanNumeralIter = (romanNumeralArray.length - 1); romanNumeralIter > 0; romanNumeralIter-- ){
+        for(int currentIndex = 0; currentIndex < romanNumeralArray.length; currentIndex++){
 
-            String thisAndNextRomanLetter = "" + romanNumeralArray[romanNumeralIter] + romanNumeralArray[romanNumeralIter - 1];
+            int nextIndex = currentIndex + 1;
 
-            System.out.println(convertedArabicNumeral);
+            if(currentIndex != lastPossibleIndex) {
+                //string representing the current and next numeral together
+                String thisAndNextRomanLetter = "" + romanNumeralArray[currentIndex] + romanNumeralArray[nextIndex];
 
-            if(RomanNumeral.isSubtractive(thisAndNextRomanLetter)){
+                if (RomanNumeral.isSubtractive(thisAndNextRomanLetter)) {
 
-                convertedArabicNumeral = convertedArabicNumeral + RomanNumeral.getRomanNumeralValue(thisAndNextRomanLetter);
-                romanNumeralIter--; //skip over the second letter of the subtractive numeral
+                    convertedArabicNumeral = convertedArabicNumeral +
+                            RomanNumeral.getRomanNumeralValue(thisAndNextRomanLetter);
+                    currentIndex++; //skip over the second letter of the subtractive numeral
+                }
+                else {
+                    convertedArabicNumeral = convertedArabicNumeral +
+                            RomanNumeral.getRomanNumeralValue("" + romanNumeralArray[currentIndex]);
+                }
             }
-            else{
+            else{ //currentIndex == lastPossibleIndex, only one letter left, subtractive not possible here
+
                 convertedArabicNumeral = convertedArabicNumeral +
-                        RomanNumeral.getRomanNumeralValue("" + romanNumeralArray[romanNumeralIter]);
+                        RomanNumeral.getRomanNumeralValue("" + romanNumeralArray[currentIndex]);
             }
         }
 
-        convertedArabicNumeral = convertedArabicNumeral + RomanNumeral.getRomanNumeralValue("" + romanNumeralArray[0]);
 
         return convertedArabicNumeral;
     }
 
-    /*
+
+
     public static String validateRomanNumeral(String romanNumeral){
+
+        char romanNumeralArray[] = romanNumeral.toCharArray();
+        String validatedNumerals[] = new String[romanNumeralArray.length]; //max possible length of the array is length of given string
+        int lastPossibleIndex = romanNumeralArray.length -1;
+
+        if (romanNumeralArray.length >= 2){
+
+            String thisAndPrevNumeral = ""  + romanNumeralArray[lastPossibleIndex - 1] + romanNumeralArray[lastPossibleIndex];
+
+            if(RomanNumeral.isSubtractive(thisAndPrevNumeral)){//if last two numerals entered are subtractive
+
+
+            }
+        }
 
 
     }
-    */
+
 }
