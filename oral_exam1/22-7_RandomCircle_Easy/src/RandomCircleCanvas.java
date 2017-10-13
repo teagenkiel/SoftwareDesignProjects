@@ -105,7 +105,6 @@ public class RandomCircleCanvas extends JPanel {
         this.setBackground(Color.YELLOW); //go
         g.setColor(Color.BLACK);         //hawks
 
-
         circleToDraw.drawCircle(g, getWidth() / 2, getHeight() / 2); //center coords are half of width and height
     }
 
