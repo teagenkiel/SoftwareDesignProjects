@@ -17,13 +17,9 @@ public class NumeralConverterFrame extends JFrame{
         setLayout(new GridLayout(2,2));
 
         JLabel romanLabel = new JLabel("Roman numeral");
-        romanLabel.setHorizontalTextPosition(SwingConstants.CENTER);
-        romanLabel.setVerticalTextPosition(SwingConstants.BOTTOM);
         add(romanLabel);
 
         JLabel arabicLabel = new JLabel("Arabic numeral");
-        arabicLabel.setHorizontalTextPosition(SwingConstants.CENTER);
-        arabicLabel.setVerticalTextPosition(SwingConstants.BOTTOM);
         add(arabicLabel);
 
         JTextField romanTextField = new JTextField(15);
