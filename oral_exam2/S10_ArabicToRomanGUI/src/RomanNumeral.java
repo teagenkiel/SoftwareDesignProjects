@@ -6,19 +6,19 @@ import javax.swing.plaf.FontUIResource;
  */
 public enum RomanNumeral {
 
-    ONE("I", 1, false),
-    FOUR("IV", 4, true),
-    FIVE("V", 5, false),
-    NINE("IX", 9, true),
-    TEN("X", 10, false),
-    FORTY("XL", 40, true),
-    FIFTY("L", 50, false),
-    NINETY("XC", 90, true),
-    ONE_HUNDRED("C", 100, false),
-    FOUR_HUNDRED("CD", 400, true),
-    FIVE_HUNDRED("D", 500, false),
-    NINE_HUNDRED("CM", 900, true),
-    ONE_THOUSAND("M", 1000, false);
+    ONE("I", 1, false, ""),
+    FOUR("IV", 4, true, "IIII"),
+    FIVE("V", 5, false, ""),
+    NINE("IX", 9, true, "VIV"),
+    TEN("X", 10, false, "VV"),
+    FORTY("XL", 40, true, "XXXX"),
+    FIFTY("L", 50, false, ""),
+    NINETY("XC", 90, true, "LXL"),
+    ONE_HUNDRED("C", 100, false, "LL"),
+    FOUR_HUNDRED("CD", 400, true, "CCCC"),
+    FIVE_HUNDRED("D", 500, false, ""),
+    NINE_HUNDRED("CM", 900, true, "DCD"),
+    ONE_THOUSAND("M", 1000, false, "DD");
 
     private final String numeralInRoman;
     private final int numeralInArabic;
@@ -26,6 +26,10 @@ public enum RomanNumeral {
      * Signifies that the numeral is represented in subtractive notation (ex: IX for 4)
      */
     private final boolean isSubtractive;
+    /**
+     * The incorrect representation of the roman numeral
+     */
+    private final String incorrectRepresentation;
 
     /**
      * Constructor for RomanNumeral enumeration.
@@ -33,11 +37,12 @@ public enum RomanNumeral {
      * @param numeralInArabic
      * @param isSubtractive
      */
-    RomanNumeral(String numeralInRoman, int numeralInArabic, boolean isSubtractive){
+    RomanNumeral(String numeralInRoman, int numeralInArabic, boolean isSubtractive, String incorrectRepresentation){
 
         this.numeralInRoman = numeralInRoman;
         this.numeralInArabic = numeralInArabic;
         this.isSubtractive = isSubtractive;
+        this.incorrectRepresentation = incorrectRepresentation;
     }
 
 
@@ -130,5 +135,9 @@ public enum RomanNumeral {
      */
     public boolean isSubtractive() {
         return isSubtractive;
+    }
+
+    public String getIncorrectRepresentation() {
+        return incorrectRepresentation;
     }
 }
