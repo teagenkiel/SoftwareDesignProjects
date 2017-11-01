@@ -16,8 +16,17 @@ public class SimpleArray {
     }
 
     // add a value to the shared array
-    public synchronized void add(int value) {
-        int position = writeIndex; // store the write index
+    public void add(int value) {
+
+        int position;
+
+        synchronized(this) {
+
+            position = writeIndex; // store the write index
+            array[position] = value;
+            ++writeIndex; // increment index of element to be written next
+
+        }
 
         try {
             // in real applications, you shouldn't sleep while holding a lock
@@ -26,12 +35,13 @@ public class SimpleArray {
             Thread.currentThread().interrupt();
         }
 
-        // put value in the appropriate element
-        array[position] = value;
-        System.out.printf("%s wrote %2d to element %d.%n",
-                Thread.currentThread().getName(), value, position);
+            // put value in the appropriate element
 
-        ++writeIndex; // increment index of element to be written next
+            System.out.printf("%s wrote %2d to element %d.%n",
+                    Thread.currentThread().getName(), value, position);
+
+
+
         System.out.printf("Next write index: %d%n", writeIndex);
     }
 
