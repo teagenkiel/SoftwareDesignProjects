@@ -11,6 +11,5 @@ public class LoveSWD extends Application {
     public void start(Stage primaryStage) {
 
 
-
     }
 }
