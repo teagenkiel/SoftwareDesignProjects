@@ -10,10 +10,8 @@ import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.text.NumberFormat;
 
-
-
 public class TipController {
-
+    // formatters for currency and percentages
     private static final NumberFormat currency =
             NumberFormat.getCurrencyInstance();
     private static final NumberFormat percent =
@@ -21,24 +19,25 @@ public class TipController {
 
     private BigDecimal tipPercentage = new BigDecimal(0.15); // 15% default
 
+    // GUI controls defined in FXML and used by the controller's code
     @FXML
-    private TextField tipTextField;
-
-    @FXML
-    private Slider tipPercentageSlider;
+    private TextField amountTextField;
 
     @FXML
     private Label tipPercentageLabel;
 
     @FXML
-    private TextField amountTextField;
+    private Slider tipPercentageSlider;
+
+    @FXML
+    private TextField tipTextField;
 
     @FXML
     private TextField totalTextField;
 
+    // calculates and displays the tip and total amounts
     @FXML
-    private void calculateButtonPressed(ActionEvent event){
-
+    private void calculateButtonPressed(ActionEvent event) {
         try {
             BigDecimal amount = new BigDecimal(amountTextField.getText());
             BigDecimal tip = amount.multiply(tipPercentage);
@@ -71,7 +70,7 @@ public class TipController {
                 }
         );
     }
-
 }
+
 
 
