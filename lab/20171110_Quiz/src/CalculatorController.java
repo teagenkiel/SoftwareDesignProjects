@@ -14,6 +14,7 @@ public class CalculatorController {
     private long number1 = 0;
     private String operator = "";
     private boolean start = true;
+    private String prevValue = "";
 
     private CalculatorModel model = new CalculatorModel();
 
@@ -30,21 +31,19 @@ public class CalculatorController {
 
     @FXML
     private void processOperator(ActionEvent event) {
-        String value = ((Button)event.getSource()).getText();
+        String newValue = ((Button)event.getSource()).getText();
 
-        if (!"=".equals(value)) {
-            if (operator.isEmpty()) {
-                output.setText(value);
-                return;
-            }
+        if (!"=".equals(newValue)) {
 
-            operator = value;
-            number1 = Long.parseLong(output.getText());
-            output.setText("");
+
+            operator = newValue;
+            number1 = Long.parseLong(newValue);
+            output.setText(newValue + prevValue);
+
         }
         else {
             if (operator.isEmpty()) {
-                output.setText(value);
+                output.setText(newValue);
                 return;
             }
 
