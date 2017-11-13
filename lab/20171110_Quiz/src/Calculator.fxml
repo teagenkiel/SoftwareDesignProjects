@@ -8,49 +8,15 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="CalculatorController">
+<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="300.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="CalculatorController">
   <columnConstraints>
     <ColumnConstraints hgrow="SOMETIMES" prefWidth="300.0" />
-    <ColumnConstraints hgrow="SOMETIMES" prefWidth="100.0" />
   </columnConstraints>
   <rowConstraints>
-    <RowConstraints maxHeight="196.0" minHeight="10.0" prefHeight="120.33333587646484" vgrow="SOMETIMES" />
-      <RowConstraints maxHeight="646.9999923706055" minHeight="577.0" prefHeight="579.6666641235352" vgrow="SOMETIMES" />
+    <RowConstraints maxHeight="283.0" minHeight="10.0" prefHeight="283.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="646.9999923706055" minHeight="304.0" prefHeight="304.0" vgrow="SOMETIMES" />
   </rowConstraints>
    <children>
-      <GridPane alignment="CENTER" gridLinesVisible="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="303.0" prefWidth="78.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
-        <columnConstraints>
-          <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="75.0" />
-        </columnConstraints>
-        <rowConstraints>
-          <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" prefHeight="75.0" vgrow="SOMETIMES" />
-          <RowConstraints maxHeight="94.99998474121094" minHeight="-Infinity" prefHeight="69.66665649414062" vgrow="SOMETIMES" />
-          <RowConstraints maxHeight="80.33334350585938" minHeight="-Infinity" prefHeight="80.33334350585938" vgrow="SOMETIMES" />
-            <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" prefHeight="75.0" vgrow="SOMETIMES" />
-        </rowConstraints>
-         <children>
-            <Button mnemonicParsing="false" prefHeight="65.0" prefWidth="136.0" text="Button" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER">
-               <GridPane.margin>
-                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-               </GridPane.margin>
-            </Button>
-            <Button mnemonicParsing="false" prefHeight="65.0" prefWidth="111.0" text="Button" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
-               <GridPane.margin>
-                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-               </GridPane.margin>
-            </Button>
-            <Button mnemonicParsing="false" prefHeight="65.0" prefWidth="106.0" text="Button" GridPane.halignment="CENTER" GridPane.rowIndex="1">
-               <GridPane.margin>
-                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-               </GridPane.margin>
-            </Button>
-            <Button mnemonicParsing="false" prefHeight="65.0" prefWidth="106.0" text="Button" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
-               <GridPane.margin>
-                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-               </GridPane.margin>
-            </Button>
-         </children>
-      </GridPane>
       <GridPane alignment="CENTER" gridLinesVisible="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="452.0" prefWidth="319.0" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
         <columnConstraints>
           <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="75.0" />
@@ -62,7 +28,6 @@
           <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" prefHeight="75.0" vgrow="SOMETIMES" />
           <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" prefHeight="75.0" vgrow="SOMETIMES" />
           <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" prefHeight="75.0" vgrow="SOMETIMES" />
-            <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" prefHeight="75.0" vgrow="SOMETIMES" />
             <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" prefHeight="75.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
@@ -96,11 +61,6 @@
                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                </GridPane.margin>
             </Button>
-            <Button fx:id="decimalButton" mnemonicParsing="false" onAction="#processOperator" prefHeight="65.0" prefWidth="105.0" text="." GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER">
-               <GridPane.margin>
-                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-               </GridPane.margin>
-            </Button>
             <Button fx:id="sixButton" mnemonicParsing="false" onAction="#processOperator" prefHeight="65.0" prefWidth="106.0" text="6" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
                <GridPane.margin>
                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
@@ -116,7 +76,7 @@
                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                </GridPane.margin>
             </Button>
-            <Button fx:id="clearButton" mnemonicParsing="false" onAction="#processOperator" prefHeight="65.0" prefWidth="101.0" text="C" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER">
+            <Button fx:id="clearButton" mnemonicParsing="false" onAction="#processOperator" prefHeight="65.0" prefWidth="101.0" text="C" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER">
                <GridPane.margin>
                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                </GridPane.margin>
@@ -146,22 +106,7 @@
                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                </GridPane.margin>
             </Button>
-            <Button mnemonicParsing="false" prefHeight="65.0" prefWidth="83.0" text="Button" GridPane.rowIndex="4">
-               <GridPane.margin>
-                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-               </GridPane.margin>
-            </Button>
-            <Button mnemonicParsing="false" prefHeight="65.0" prefWidth="95.0" text="Button" GridPane.columnIndex="1" GridPane.rowIndex="4">
-               <GridPane.margin>
-                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-               </GridPane.margin>
-            </Button>
-            <Button mnemonicParsing="false" prefHeight="65.0" prefWidth="104.0" text="Button" GridPane.columnIndex="2" GridPane.rowIndex="4">
-               <GridPane.margin>
-                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-               </GridPane.margin>
-            </Button>
-            <Button fx:id="equalsButton" mnemonicParsing="false" onAction="#processOperator" prefHeight="65.0" prefWidth="107.0" text="=" GridPane.columnIndex="3" GridPane.rowIndex="4">
+            <Button fx:id="equalsButton" mnemonicParsing="false" onAction="#processOperator" prefHeight="65.0" prefWidth="107.0" text="=" GridPane.columnIndex="2" GridPane.rowIndex="3">
                <GridPane.margin>
                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                </GridPane.margin>
@@ -177,6 +122,6 @@
             <Insets />
          </GridPane.margin>
       </GridPane>
-      <TextField fx:id="output" prefHeight="76.0" prefWidth="450.0" />
+      <TextField fx:id="output" prefHeight="76.0" prefWidth="254.0" />
    </children>
 </GridPane>
