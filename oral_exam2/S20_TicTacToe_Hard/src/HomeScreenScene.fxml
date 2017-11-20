@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="398.0" prefWidth="443.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="HomeScreenController">
+  <columnConstraints>
+      <ColumnConstraints hgrow="SOMETIMES" maxWidth="517.0" minWidth="10.0" prefWidth="415.0" />
+  </columnConstraints>
+  <rowConstraints>
+    <RowConstraints maxHeight="353.0" minHeight="10.0" prefHeight="127.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="353.0" minHeight="10.0" prefHeight="40.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="353.0" minHeight="10.0" prefHeight="72.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="353.0" minHeight="10.0" prefHeight="82.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="353.0" minHeight="10.0" prefHeight="81.0" vgrow="SOMETIMES" />
+  </rowConstraints>
+   <children>
+      <Region prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: blue red blue red; -fx-border-width: 10; -fx-border-style: dotted;" />
+      <Label text="Tic Tac Toe" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+         <font>
+            <Font name="Arial" size="72.0" />
+         </font>
+      </Label>
+      <Label text="Please choose a game type:" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="BOTTOM">
+         <font>
+            <Font name="Arial" size="18.0" />
+         </font>
+      </Label>
+      <Button fx:id="HumanVsComputerButton" mnemonicParsing="false" onAction="#createHumanVsComputerGame" text="Human vs. Computer" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
+      <Button fx:id="HumanVsHumanButton" mnemonicParsing="false" onAction="#createHumanVsHumanGame" text="Human vs. Human" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER" />
+      <Button fx:id="ComputerVsComputerButton" mnemonicParsing="false" onAction="#createComputerVsComputerGame" text="Computer vs. Computer" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER" />
+   </children>
+</GridPane>
