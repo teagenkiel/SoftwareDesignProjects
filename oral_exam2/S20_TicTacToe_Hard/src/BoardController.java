@@ -14,17 +14,38 @@ import javafx.scene.control.*;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+/**
+ * This class will be used as the controller of the game board scene. It uses the MVC design and will work with the fxml
+ * scene file (view) and the Board Model class (model) to produce a working tic tac toe game for the user.
+ *
+ * @author Teagen Kiel
+ */
 public class BoardController{
 
+
+    /**
+     * The model that will be used to store data for the controller and work with the view.
+     */
     private BoardModel model;
 
+    /**
+     * The variable to represent the grid pane that the game is played on.
+     */
     @FXML
     public GridPane gameGrid;
 
+    /**
+     * The variable which will represent the label which displays the game info to the user.
+     */
     @FXML
     public Label gameLabel;
 
 
+    /**
+     * This method will
+     * @param player1
+     * @param player2
+     */
     public void setPlayers (Player player1, Player player2){
 
         this.model = new BoardModel(player1, player2);
