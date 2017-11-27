@@ -9,7 +9,7 @@ import javax.swing.plaf.FontUIResource;
  * @author Teagen Kiel
  *
  */
-public enum RomanNumeral {
+public enum RomanNumeral{
 
     ONE("I", 1, false, ""),
     FOUR("IV", 4, true, "IIII"),
