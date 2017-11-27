@@ -1,6 +1,9 @@
 /**
+ * This class is the main logic class for the numeral conversion application. It's main goal is to use methods to
+ * take a numeral of one type and convert it to another. It will also contain methods which will support these main
+ * conversion methods, for example validation.
  *
- *
+ * @author teagen kiel
  *
  */
 

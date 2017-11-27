@@ -5,12 +5,18 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
 /**
+ * This class is used to create the frame for which the converter application will be displayed and used by the user.
+ * It will create a functional gui that will allow the user to type a numeral in either box and display the converted
+ * GUI in the other box.
  *
- *
- *
+ * @author Teagen Kiel
  */
 public class NumeralConverterFrame extends JFrame{
 
+    /**
+     * The main constructor for the class NumeralConverterFrame. This constructor will initialize the numeral converter's
+     * GUI and will register event handlers so that the user can type and react with the numeral converter.
+     */
     public NumeralConverterFrame(){
         super("Arabic and Roman Numeral Converter");
 

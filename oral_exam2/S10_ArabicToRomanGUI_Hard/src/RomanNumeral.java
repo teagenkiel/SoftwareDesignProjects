@@ -1,7 +1,12 @@
 import javax.swing.plaf.FontUIResource;
 
 /**
+ * This enum is used to set the standard for each roman numeral and what it represents. For each roman numeral,
+ * information including the value is a string, as an integer, whether it is subtractive or not, and the incorrect
+ * representation of the numeral if any. This information is given so that the numeral converter can use it to recognize,
+ * validate, and efficiently convert each roman numeral.
  *
+ * @author Teagen Kiel
  *
  */
 public enum RomanNumeral {
