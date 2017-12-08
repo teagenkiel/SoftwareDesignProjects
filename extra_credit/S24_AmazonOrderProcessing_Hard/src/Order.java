@@ -14,6 +14,7 @@ public class Order {
     private final String item;
     private final String category;
     private String shippingCenterNumber;
+    private String shippingCenterSectionNumber;
     private String deliveryTruckNumber;
 
     public Order(int orderNumber, String address, String city, String state, String zipCode, String name, String item, String category) {
@@ -26,6 +27,7 @@ public class Order {
         this.item = item;
         this.category = category;
         this.shippingCenterNumber = "Not yet assigned";
+        this.shippingCenterSectionNumber = "Not yet assigned";
         this.deliveryTruckNumber = "Not yet assigned";
     }
 
@@ -33,8 +35,24 @@ public class Order {
         this.shippingCenterNumber = shippingCenterNumber;
     }
 
+    public void setShippingCenterSectionNumber(String shippingCenterSectionNumber) {
+        this.shippingCenterSectionNumber = shippingCenterSectionNumber;
+    }
+
     public void setDeliveryTruckNumber(String deliveryTruckNumber) {
         this.deliveryTruckNumber = deliveryTruckNumber;
+    }
+
+    public int getOrderNumber() {
+        return orderNumber;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public String getCategory() {
+        return category;
     }
 
     @Override
@@ -48,6 +66,7 @@ public class Order {
                 ", Item = " + item +
                 ", Category = " + category +
                 ", Shipping Center Number = " + shippingCenterNumber +
-                ", Delivery Truck Number = " + deliveryTruckNumber;
+                ", Shipping Center Section Number = " + shippingCenterSectionNumber +
+                ", Delivery DeliveryTruck Number = " + deliveryTruckNumber;
     }
 }

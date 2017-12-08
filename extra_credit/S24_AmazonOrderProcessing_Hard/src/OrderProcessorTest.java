@@ -16,12 +16,12 @@ public class OrderProcessorTest {
 
         final int MAX_BUFFER_SIZE = 21;
         ExecutorService myExecutor = Executors.newCachedThreadPool();
-        ArrayBlockingQueue<Order> webServerOutput = new ArrayBlockingQueue<Order>(MAX_BUFFER_SIZE);
+
 
         AmazonWebServer webServer1 = null;
 
         try {
-            webServer1 = new AmazonWebServer(webServerOutput, "S24_AmazonOrderProcessing_OrdersFile.csv");
+            webServer1 = new AmazonWebServer("S24_AmazonOrderProcessing_OrdersFile.csv");
         }
         catch (FileNotFoundException e) {
             e.printStackTrace();
@@ -40,8 +40,6 @@ public class OrderProcessorTest {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-
-        System.out.println(webServerOutput);
 
 
     }
